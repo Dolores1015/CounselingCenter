@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務項目 | Our Services</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+        }
+        nav a:hover { color: #a2b9bc; }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h1 { color: #4b6b6b; font-size: 2rem; }
+        
+        /* 服務卡片排版 */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #a2b9bc;
+        }
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .service-name {
+            font-size: 1.5rem;
+            color: #4b6b6b;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .service-desc {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .price {
+            font-weight: bold;
+            color: #d4a373;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            background: #f1f1f1;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於我們</a>
+            <a href="team.html">專業團隊</a>
+            <a href="services.html">服務項目</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="section-title">
+            <h1>我們的服務</h1>
+            <p>專業、溫暖、客製化，為您的需求提供最合適的解決方案。</p>
+        </div>
+
+        <div class="service-grid">
+            <!-- 服務項 1 -->
+            <div class="service-card">
+                <span class="icon">🌿</span>
+                <div class="service-name">心理諮商服務</div>
+                <div class="service-desc">
+                    提供一對一個別諮商、伴侶諮商及家庭諮商。由資深心理師陪伴您度過情緒低潮，探索自我內在，找回生活重心。
+                </div>
+                <div class="price">NT$ 2,000 / 50 min</div>
+            </div>
+
+            <!-- 服務項 2 -->
+            <div class="service-card">
+                <span class="icon">🎨</span>
+                <div class="service-name">品牌設計規劃</div>
+                <div class="service-desc">
+                    從 Logo 設計、名片排版到整體品牌視覺規劃（VI）。我們擅長將您的核心價值轉化為具備吸引力的視覺語彙。
+                </div>
+                <div class="price">歡迎洽詢報價</div>
+            </div>
+
+            <!-- 服務項 3 -->
+            <div class="service-card">
+                <span class="icon">🧶</span>
+                <div class="service-name">手作藝術教學</div>
+                <div class="service-desc">
+                    包含黏土雕塑、編織、刺繡等多元手藝課程。在創作過程中獲得療癒感，並完成專屬於您的手創作品。
+                </div>
+                <div class="price">單堂 NT$ 800 起</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 服務展示頁面
+    </div>
+
+</body>
+</html>
