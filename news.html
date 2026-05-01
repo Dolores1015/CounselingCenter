@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新消息 | 網站動態</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+        }
+        nav a:hover { color: #88abaf; }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-title h1 { color: #5a7d7c; letter-spacing: 2px; }
+
+        /* 最新消息列表樣式 */
+        .news-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+        .news-item:hover {
+            transform: scale(1.01);
+        }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .news-date {
+            background: #88abaf;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 15px;
+        }
+        .news-category {
+            color: #888;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .news-title:hover { color: #5a7d7c; }
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於我們</a>
+            <a href="news.html">最新消息</a>
+            <a href="services.html">服務項目</a>
+            <a href="booking.html">預約流程</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>最新消息</h1>
+            <p>追蹤我們的最新動態、講座資訊與品牌故事</p>
+        </div>
+
+        <!-- 消息項目 1 -->
+        <article class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026-05-02</span>
+                <span class="news-category">活動公告</span>
+            </div>
+            <a href="#" class="news-title">夏季手作市集：與「心之所向」在巴哈姆特市集見面吧！</a>
+            <div class="news-excerpt">
+                我們將參與今年的夏季市集，現場將展示最新的黏土雕塑與編織作品，包含受受歡迎的動漫元素創作，歡迎大家來現場交流。
+            </div>
+        </article>
+
+        <!-- 消息項目 2 -->
+        <article class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026-04-15</span>
+                <span class="news-category">中心動態</span>
+            </div>
+            <a href="#" class="news-title">雲心諮商中心：室內指標系統全面更新</a>
+            <div class="news-excerpt">
+                為了提供更直觀的導引服務，我們重新設計了中心的室內標籤與視覺意象，期望能帶給來訪者更舒適的環境體驗。
+            </div>
+        </article>
+
+        <!-- 消息項目 3 -->
+        <article class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026-03-20</span>
+                <span class="news-category">專業分享</span>
+            </div>
+            <a href="#" class="news-title">淺談自我探索：在藝術創作中找到平靜</a>
+            <div class="news-excerpt">
+                透過藝術媒材的創作，我們能更直觀地看見內心的樣貌。本篇由專業心理師與設計師共同分享創作與心理健康的關聯。
+            </div>
+        </article>
+
+    </div>
+
+    <div class="footer">
+        © 2026 網站動態分享平台
+    </div>
+
+</body>
+</html>
