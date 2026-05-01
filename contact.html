@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約流程 | 諮商服務</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+        }
+        nav a:hover { color: #88abaf; }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header-section h1 { color: #5a7d7c; margin-bottom: 10px; }
+        .header-section p { color: #888; }
+
+        /* 流程步驟樣式 */
+        .process-wrapper {
+            position: relative;
+            margin-top: 30px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #88abaf;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .step-content {
+            margin-left: 20px;
+            padding-bottom: 20px;
+        }
+        .step-content h3 { margin: 0 0 10px 0; color: #333; }
+        .step-content p { margin: 0; font-size: 0.95rem; color: #666; }
+
+        /* 連接線 */
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .cta-box {
+            background: #f0f7f7;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #5a7d7c;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+        .btn-primary:hover { background: #466362; }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於我們</a>
+            <a href="services.html">服務項目</a>
+            <a href="booking.html">預約流程</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>預約諮商流程</h1>
+            <p>簡單四個步驟，開啟一段陪伴與探索的旅程</p>
+        </div>
+
+        <div class="process-wrapper">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>填寫預約表單</h3>
+                    <p>請點擊下方預約按鈕，填寫您的基本資料與初步需求，讓我們初步了解您的狀況。</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>初談與媒合</h3>
+                    <p>行政人員或初談老師將與您聯繫，確認諮商意願並媒合最適合您的心理師。</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>確認諮商時間</h3>
+                    <p>確認心理師後，我們將與您協調第一次面談的時間，並發送預約確認通知。</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>開始正式諮商</h3>
+                    <p>依約定時間前往中心（或遠距平台），在專業心理師的陪伴下開始您的諮商旅程。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <p>準備好跨出這一步了嗎？</p>
+            <a href="#" class="btn-primary">立即填寫預約表單</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 雲心諮商中心 | 陪伴您找回內心的寧靜
+    </div>
+
+</body>
+</html>
