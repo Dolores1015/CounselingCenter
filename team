@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專業團隊 | 心理諮商中心</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            background-color: #fcfcfc;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+        }
+        nav a:hover { color: #88abaf; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .team-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .team-title h1 { color: #5a7d7c; font-size: 2.2rem; }
+        
+        /* 團隊卡片排版 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .team-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .team-card:hover { transform: translateY(-5px); }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .name { font-size: 1.4rem; font-weight: bold; color: #333; margin-bottom: 5px; }
+        .title { color: #88abaf; font-weight: bold; margin-bottom: 15px; }
+        .specialty { font-size: 0.95rem; text-align: left; border-top: 1px solid #eee; pt: 15px; }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            background: #f1f1f1;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於理念</a>
+            <a href="team.html">專業團隊</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="team-title">
+            <h1>專業團隊</h1>
+            <p>在這裡，我們陪伴您一起探索內心的力量，找回生命的方向。</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- 心理師成員 1 -->
+            <div class="team-card">
+                <div class="avatar">照片預留</div>
+                <div class="name">李心理師</div>
+                <div class="title">資深諮商心理師 / 院長</div>
+                <div class="specialty">
+                    <strong>專長領域：</strong><br>
+                    成人深度心理諮商、情緒管理、自我探索、職場壓力適應。
+                </div>
+            </div>
+
+            <!-- 心理師成員 2 -->
+            <div class="team-card">
+                <div class="avatar">照片預留</div>
+                <div class="name">張心理師</div>
+                <div class="title">諮商心理師</div>
+                <div class="specialty">
+                    <strong>專長領域：</strong><br>
+                    青少年發展、親子溝通、關係議題、創傷知情諮商。
+                </div>
+            </div>
+
+            <!-- 心理師成員 3 -->
+            <div class="team-card">
+                <div class="avatar">照片預留</div>
+                <div class="name">陳心理師</div>
+                <div class="title">諮商心理師</div>
+                <div class="specialty">
+                    <strong>專長領域：</strong><br>
+                    焦慮與憂鬱調適、睡眠障礙、生涯規劃、伴侶諮商。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 諮商中心版權所有
+    </div>
+
+</body>
+</html>
