@@ -57,26 +57,41 @@
             box-shadow: 0 4px 12px rgba(68, 177, 177, 0.2);
         }
 
-        /* 漸變隱藏/顯示動畫 */
+        /* 純淡入淡出過場動畫 */
         .fade-transition {
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
         }
         .hidden-state {
             opacity: 0;
-            transform: translateY(20px);
             pointer-events: none;
             position: absolute;
             width: 100%;
+            visibility: hidden;
         }
         .visible-state {
             opacity: 1;
-            transform: translateY(0);
             position: relative;
+            visibility: visible;
+        }
+
+        /* 隱藏橫向滑動區塊的捲軸，但保留滑動功能 */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        /* 防止圖片或文字在拖曳時被選取干擾 */
+        .no-select {
+            user-select: none;
+            -webkit-user-drag: none;
         }
     </style>
 </head>
 <body class="font-sans antialiased min-h-screen flex flex-col">
-    <!-- 頂部導覽列 (與首頁相同) -->
+    <!-- 頂部導覽列 -->
     <nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="flex justify-between items-center h-20">
@@ -145,7 +160,7 @@
     </nav>
 
     <main id="main-content" class="flex-grow pt-32 pb-24 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6 lg:px-12 relative">
+        <div class="max-w-5xl mx-auto px-6 lg:px-12 relative">
             
             <!-- 區塊一：選擇症狀 (初始顯示) -->
             <div id="selection-section" class="fade-transition visible-state bg-white rounded-3xl p-10 md:p-14 shadow-sm border border-gray-100">
@@ -156,7 +171,7 @@
 
                 <form id="match-form" class="space-y-8">
                     <div class="flex flex-wrap gap-4 justify-center" id="issue-container">
-                        <!-- 選項由 JS 生成，方便維護 -->
+                        <!-- 選項由 JS 生成 -->
                     </div>
 
                     <div class="text-center pt-6">
@@ -170,30 +185,31 @@
 
             <!-- 區塊二：媒合結果 (初始隱藏) -->
             <div id="results-section" class="fade-transition hidden-state">
-                <div class="flex justify-between items-end mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
                     <div>
                         <h2 class="text-3xl font-medium text-morandi-brandBrown mb-2">推薦心理師</h2>
-                        <p class="text-gray-600" id="result-summary">根據您的選擇，為您排序出最適合的人選。</p>
+                        <p class="text-gray-600" id="result-summary">根據您的選擇，為您排序出最適合的人選。（左右滑動或拖曳查看更多）</p>
                     </div>
-                    <button id="reselect-btn" class="text-sm text-morandi-green hover:text-morandi-darkGreen underline transition-all duration-300">
+                    <button id="reselect-btn" class="text-sm bg-white border-2 border-morandi-green text-morandi-green hover:bg-morandi-green hover:text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium whitespace-nowrap">
                         重新選擇議題
                     </button>
                 </div>
 
-                <div id="therapist-list" class="space-y-6">
+                <!-- 橫向滑動區塊 (加入 cursor-grab 引導滑鼠) -->
+                <div id="therapist-list" class="flex gap-6 overflow-x-auto pb-10 pt-4 snap-x snap-mandatory scrollbar-hide cursor-grab">
                     <!-- 結果由 JS 動態生成 -->
                 </div>
                 
-                <div class="mt-12 text-center">
+                <div class="mt-8 text-center border-t border-gray-200 pt-10">
                      <p class="text-gray-500 text-sm mb-6">沒有找到完全符合的？沒關係，您可以先隨意預約一位，或聯繫我們安排。</p>
-                     <a href="booking.html" class="inline-block border-2 border-morandi-green text-morandi-green px-8 py-3 rounded-lg font-medium hover:bg-morandi-green hover:text-white transition-all duration-300 ease-in-out">直接前往預約</a>
+                     <a href="booking.html" class="inline-block bg-morandi-brandBrown text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 ease-in-out shadow-sm">直接前往預約</a>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <!-- 頁尾 (與首頁相同) -->
+    <!-- 頁尾 -->
     <footer class="bg-morandi-mist border-t border-morandi-green/20 pt-20 pb-10 text-morandi-text mt-auto">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
@@ -236,7 +252,7 @@
     </footer>
 
     <script>
-        // --- 手機選單與下拉邏輯 (與首頁相同) ---
+        // --- 手機選單與下拉邏輯 ---
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         menuButton.addEventListener('click', () => {
@@ -271,53 +287,119 @@
         });
 
         // --- 媒合邏輯區塊 ---
-
-        // 1. 定義議題
         const issues = [
-            { id: 'anxiety', label: '焦慮' },
-            { id: 'depression', label: '憂鬱' },
-            { id: 'trauma', label: '創傷' },
-            { id: 'interpersonal', label: '人際' },
-            { id: 'intimacy', label: '親密關係' }
+            { id: 'mental_health', label: '心理健康相關' },
+            { id: 'relationship', label: '感情議題' },
+            { id: 'family', label: '家庭議題' },
+            { id: 'self_exploration', label: '個人內在探索' },
+            { id: 'sexuality', label: '性議題' },
+            { id: 'gender', label: '性別議題' },
+            { id: 'child_adolescent', label: '兒童 / 青少年議題' },
+            { id: 'interpersonal', label: '人際關係' },
+            { id: 'career', label: '職場議題' },
+            { id: 'parenting', label: '孕產 / 教養議題' }
         ];
 
-        // 2. 模擬心理師資料庫 (包含專長標籤)
+        // 12位模擬心理師資料
         const therapists = [
             {
                 id: 1,
                 name: '林語心',
                 title: '諮商心理師',
-                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200',
-                specialties: ['anxiety', 'depression', 'trauma'],
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'self_exploration', 'family', 'parenting'],
                 description: '擅長以溫暖包容的態度，陪伴個案走過情緒低谷與創傷復原。'
             },
             {
                 id: 2,
                 name: '陳柏宇',
                 title: '諮商心理師',
-                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=200&h=200',
-                specialties: ['interpersonal', 'intimacy'],
+                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['interpersonal', 'relationship', 'sexuality', 'gender'],
                 description: '專精於伴侶諮商與人際界線探索，協助釐清關係中的互動盲點。'
             },
             {
                 id: 3,
                 name: '黃雅婷',
                 title: '臨床心理師',
-                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200&h=200',
-                specialties: ['anxiety', 'interpersonal'],
+                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'interpersonal', 'career', 'child_adolescent'],
                 description: '結合認知行為療法，協助個案具體處理生活中的焦慮與社交壓力。'
             },
             {
                 id: 4,
                 name: '張家瑋',
                 title: '諮商心理師',
-                image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200',
-                specialties: ['depression', 'intimacy', 'trauma'],
+                image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'relationship', 'self_exploration', 'family'],
                 description: '運用深度心理學取向，陪伴探索原生家庭影響與深層的情緒議題。'
+            },
+            {
+                id: 5,
+                name: '吳念真',
+                title: '臨床心理師',
+                image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'child_adolescent', 'parenting'],
+                description: '專注於兒童青少年發展與親職教養議題，提供專業且溫暖的心理評估與介入。'
+            },
+            {
+                id: 6,
+                name: '蔡依桐',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['career', 'interpersonal', 'self_exploration'],
+                description: '具備豐富的職場EAP經驗，協助釐清職涯迷惘、職場人際衝突與自我價值探索。'
+            },
+            {
+                id: 7,
+                name: '鄭宇軒',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['relationship', 'family', 'sexuality', 'gender'],
+                description: '營造多元友善的諮商空間，陪您探討性別認同、親密關係與伴侶溝通的各種樣貌。'
+            },
+            {
+                id: 8,
+                name: '郭佳盈',
+                title: '臨床心理師',
+                image: 'https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'career', 'interpersonal'],
+                description: '擅長壓力管理與情緒調適，以正念認知取向帶領個案在快節奏生活中找回平靜。'
+            },
+            {
+                id: 9,
+                name: '賴品妍',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['self_exploration', 'family', 'parenting'],
+                description: '關注女性生命週期發展、孕產期身心調適及婆媳/家庭系統動力分析。'
+            },
+            {
+                id: 10,
+                name: '許哲維',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1537368910025-7001c08cb364?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['mental_health', 'self_exploration', 'relationship'],
+                description: '透過藝術治療與夢境探索，接觸潛意識的真實渴望，療癒過往的情感創傷。'
+            },
+            {
+                id: 11,
+                name: '楊千慧',
+                title: '臨床心理師',
+                image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['child_adolescent', 'family', 'mental_health'],
+                description: '專精於兒童遊戲治療與青少年情緒行為困擾，擔任家庭溝通的堅實橋樑。'
+            },
+            {
+                id: 12,
+                name: '趙啟明',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&q=80&w=400&h=400',
+                specialties: ['career', 'relationship', 'gender', 'self_exploration'],
+                description: '以敘事治療取向為主，陪您重新改寫生命故事，找到專屬於您的獨特力量。'
             }
         ];
 
-        // 3. 初始化畫面與綁定事件
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('issue-container');
             const startBtn = document.getElementById('start-match-btn');
@@ -326,7 +408,6 @@
             const resultsSection = document.getElementById('results-section');
             const errorMsg = document.getElementById('error-message');
 
-            // 渲染議題選項
             issues.forEach(issue => {
                 const wrapper = document.createElement('div');
                 wrapper.innerHTML = `
@@ -338,9 +419,7 @@
                 container.appendChild(wrapper);
             });
 
-            // 點擊開始媒合
             startBtn.addEventListener('click', () => {
-                // 取得選中的項目
                 const selectedCheckboxes = document.querySelectorAll('.issue-checkbox:checked');
                 if (selectedCheckboxes.length === 0) {
                     errorMsg.classList.remove('hidden');
@@ -350,20 +429,17 @@
                 errorMsg.classList.add('hidden');
                 const selectedIssues = Array.from(selectedCheckboxes).map(cb => cb.value);
 
-                // 執行媒合邏輯並顯示
                 displayResults(selectedIssues);
 
-                // 動畫切換區塊
                 selectionSection.classList.remove('visible-state');
                 selectionSection.classList.add('hidden-state');
                 
                 setTimeout(() => {
                     resultsSection.classList.remove('hidden-state');
                     resultsSection.classList.add('visible-state');
-                }, 400); // 等待淡出完成
+                }, 400); 
             });
 
-            // 點擊重新選擇
             reselectBtn.addEventListener('click', () => {
                 resultsSection.classList.remove('visible-state');
                 resultsSection.classList.add('hidden-state');
@@ -373,14 +449,47 @@
                     selectionSection.classList.add('visible-state');
                 }, 400);
             });
+
+            // --- 滑鼠拖曳橫向滾動邏輯 ---
+            const slider = document.getElementById('therapist-list');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                // 拖曳時先關閉自動吸附(snap)，會比較順暢
+                slider.classList.remove('snap-x', 'snap-mandatory');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                slider.classList.add('snap-x', 'snap-mandatory');
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                slider.classList.add('snap-x', 'snap-mandatory');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // 控制拖曳速度
+                slider.scrollLeft = scrollLeft - walk;
+            });
         });
 
-        // 4. 媒合計算與渲染邏輯
         function displayResults(selectedIssues) {
             const listContainer = document.getElementById('therapist-list');
-            listContainer.innerHTML = ''; // 清空先前結果
+            listContainer.innerHTML = ''; 
 
-            // 計算每位心理師的分數 (中幾個標籤就得幾分)
             const scoredTherapists = therapists.map(therapist => {
                 const score = therapist.specialties.reduce((acc, specialty) => {
                     return acc + (selectedIssues.includes(specialty) ? 1 : 0);
@@ -388,49 +497,43 @@
                 return { ...therapist, matchScore: score };
             });
 
-            // 排序：分數高的在前，若分數相同則保持原本順序或隨機（這裡維持原序）
             scoredTherapists.sort((a, b) => b.matchScore - a.matchScore);
-
-            // 過濾掉0分的(可選，這裡選擇保留但排在後面，或者只顯示大於0的)
             const matchedTherapists = scoredTherapists.filter(t => t.matchScore > 0);
 
             if(matchedTherapists.length === 0){
-                 listContainer.innerHTML = `<div class="p-8 text-center bg-gray-50 rounded-2xl text-gray-500">目前沒有完全吻合的心理師，建議您可以直接預約，由行政人員為您安排。</div>`;
+                 listContainer.innerHTML = `<div class="w-full p-8 text-center bg-gray-50 rounded-2xl text-gray-500">目前沒有完全吻合的心理師，建議您可以直接預約，由行政人員為您安排。</div>`;
                  return;
             }
 
-            // 渲染卡片
             matchedTherapists.forEach((therapist, index) => {
-                // 找出配對成功的標籤中文
                 const matchedLabels = therapist.specialties
                     .filter(s => selectedIssues.includes(s))
                     .map(s => issues.find(i => i.id === s).label);
 
                 const card = document.createElement('div');
-                // 動畫延遲出現效果
-                card.className = `bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-md transition-all duration-300 transform opacity-0 translate-y-4`;
                 
-                // 設定一點動畫延遲
+                card.className = `flex-none w-72 md:w-80 bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col hover:shadow-lg transition-all duration-500 snap-center transform opacity-0 scale-95`;
+                
                 setTimeout(() => {
-                    card.classList.remove('opacity-0', 'translate-y-4');
+                    card.classList.remove('opacity-0', 'scale-95');
                 }, 100 * (index + 1));
 
+                // 加入 no-select 避免拖曳時反白到圖片或文字
                 card.innerHTML = `
-                    <div class="flex-shrink-0">
-                        <img src="${therapist.image}" alt="${therapist.name} 心理師" class="w-24 h-24 rounded-full object-cover border-4 border-morandi-mist">
+                    <div class="w-full h-56 mb-5 overflow-hidden rounded-2xl flex-shrink-0 bg-morandi-mist no-select pointer-events-none">
+                        <img src="${therapist.image}" alt="${therapist.name} 心理師" class="w-full h-full object-cover">
                     </div>
-                    <div class="flex-grow">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-xl font-medium text-morandi-brandBrown">${therapist.name}</h3>
-                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">${therapist.title}</span>
+                    <div class="flex-grow flex flex-col w-full no-select">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-2xl font-medium text-morandi-brandBrown">${therapist.name}</h3>
+                            <span class="text-xs text-morandi-darkGreen bg-morandi-mist px-2.5 py-1 rounded-full font-medium">${therapist.title}</span>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            ${matchedLabels.map(label => `<span class="text-xs bg-morandi-mist text-morandi-darkGreen px-2 py-1 rounded font-medium">✓ 匹配: ${label}</span>`).join('')}
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${matchedLabels.map(label => `<span class="text-xs border border-gray-200 text-gray-500 px-2.5 py-1 rounded-full">✓ ${label}</span>`).join('')}
                         </div>
-                        <p class="text-sm text-gray-600 leading-relaxed">${therapist.description}</p>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">
-                        <a href="booking.html?therapist=${therapist.id}" class="block w-full text-center bg-white border border-morandi-green text-morandi-green hover:bg-morandi-green hover:text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium">
+                        <p class="text-sm text-gray-600 leading-relaxed mb-8 flex-grow pointer-events-none">${therapist.description}</p>
+                        
+                        <a href="booking.html?therapist=${therapist.id}" class="block w-full text-center bg-white border-2 border-morandi-green text-morandi-green hover:bg-morandi-green hover:text-white px-6 py-3 rounded-xl transition-all duration-300 font-medium mt-auto" draggable="false">
                             預約此心理師
                         </a>
                     </div>
