@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 與 Open Graph (OG) 標籤 -->
+    <meta property="og:title" content="媒合心理師 | 耘心心理諮商所">
+    <meta property="og:description" content="選擇您目前想談的議題，讓我們為您推薦最適合的專業心理師。">
+    <meta property="og:image" content="你的預設分享縮圖網址 (建議 1200x630)">
+    <meta property="og:url" content="你的網站網址/match.html">
+    <meta property="og:type" content="website">
+
+    <title>媒合心理師 | 耘心心理諮商所</title>
+    <meta name="description" content="選擇您目前想談的議題，讓我們為您推薦最適合的專業心理師。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        morandi: {
+                            beige: '#F6FAFA',
+                            green: '#44B1B1',
+                            darkGreen: '#2F7F83',
+                            wood: '#B8957C',
+                            text: '#394242',
+                            brandBrown: '#1F4F52',
+                            mist: '#EAF6F5',
+                            clay: '#D9C8BD'
+                        }
+                    },
+                    fontFamily: { sans: ['Noto Sans TC', 'sans-serif'] },
+                    boxShadow: { soft: '0 18px 45px rgba(31, 79, 82, 0.10)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #F6FAFA; color: #394242; }
+        .nav-blur { backdrop-filter: blur(12px); background-color: rgba(246, 250, 250, 0.90); }
+        
+        /* 支援滑鼠 Hover 與 JS Click 的下拉選單 */
+        .dropdown-menu { display: none; }
+        .dropdown:hover .dropdown-menu, .dropdown-menu.show { display: block; }
+
+        /* 標籤選取效果 */
+        .issue-checkbox:checked + label {
+            background-color: #44B1B1;
+            color: white;
+            border-color: #44B1B1;
+            box-shadow: 0 4px 12px rgba(68, 177, 177, 0.2);
+        }
+
+        /* 漸變隱藏/顯示動畫 */
+        .fade-transition {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        .hidden-state {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+        }
+        .visible-state {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+    <!-- 頂部導覽列 (與首頁相同) -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="rounded-md">
+                        <img src="images/06-header.png" alt="耘心心理諮商所 Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x48?text=Logo'">
+                    </a>
+                </div>
+
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex items-center space-x-8 text-base tracking-wide font-medium text-morandi-text">
+                    <a href="about.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">關於我們</a>
+                    <a href="team.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理師團隊</a>
+
+                    <!-- 諮商服務 下拉 -->
+                    <div class="relative dropdown">
+                        <button class="flex items-center text-morandi-green transition-all duration-300 ease-in-out py-2" aria-haspopup="true" aria-expanded="false">
+                            諮商服務 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden dropdown-menu">
+                            <a href="services.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">服務項目</a>
+                            <a href="match.html" class="block px-6 py-4 bg-morandi-mist text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">媒合心理師</a>
+                            <a href="corporate.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">企業服務 (EAP)</a>
+                        </div>
+                    </div>
+
+                    <!-- 心靈專欄 下拉 -->
+                    <div class="relative dropdown">
+                        <button class="flex items-center hover:text-morandi-green transition-all duration-300 ease-in-out py-2" aria-haspopup="true" aria-expanded="false">
+                            心靈專欄 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden dropdown-menu">
+                            <a href="news.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">最新消息</a>
+                            <a href="articles.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">精選文章</a>
+                        </div>
+                    </div>
+                    
+                    <a href="booking.html" class="bg-morandi-green text-white px-7 py-2.5 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-morandi-text p-2 focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2 rounded-md" aria-expanded="false" aria-label="開啟選單">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 手機版選單 -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 pb-6 pt-2">
+                <div class="space-y-1">
+                    <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">關於我們</a>
+                    <a href="team.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">心理師團隊</a>
+                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">諮商服務</p>
+                    <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">服務項目</a>
+                    <a href="match.html" class="block px-4 py-3 bg-morandi-mist text-morandi-green rounded-lg transition-all duration-300 ease-in-out">媒合心理師</a>
+                    <a href="corporate.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">企業服務</a>
+                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">文章資訊</p>
+                    <a href="news.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">最新消息</a>
+                    <a href="articles.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">精選文章</a>
+                    <div class="pt-4 px-4">
+                        <a href="booking.html" class="block w-full text-center bg-morandi-green text-white py-3 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="flex-grow pt-32 pb-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12 relative">
+            
+            <!-- 區塊一：選擇症狀 (初始顯示) -->
+            <div id="selection-section" class="fade-transition visible-state bg-white rounded-3xl p-10 md:p-14 shadow-sm border border-gray-100">
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown mb-4">尋找適合您的心理師</h1>
+                    <p class="text-gray-600">請選擇您目前想談的議題（可複選），我們將為您推薦最適合的專業陪伴。</p>
+                </div>
+
+                <form id="match-form" class="space-y-8">
+                    <div class="flex flex-wrap gap-4 justify-center" id="issue-container">
+                        <!-- 選項由 JS 生成，方便維護 -->
+                    </div>
+
+                    <div class="text-center pt-6">
+                        <p id="error-message" class="text-red-500 text-sm mb-4 hidden">請至少選擇一項議題</p>
+                        <button type="button" id="start-match-btn" class="bg-morandi-green text-white px-10 py-4 rounded-xl text-lg font-medium hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2 w-full md:w-auto">
+                            開始媒合
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 區塊二：媒合結果 (初始隱藏) -->
+            <div id="results-section" class="fade-transition hidden-state">
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <h2 class="text-3xl font-medium text-morandi-brandBrown mb-2">推薦心理師</h2>
+                        <p class="text-gray-600" id="result-summary">根據您的選擇，為您排序出最適合的人選。</p>
+                    </div>
+                    <button id="reselect-btn" class="text-sm text-morandi-green hover:text-morandi-darkGreen underline transition-all duration-300">
+                        重新選擇議題
+                    </button>
+                </div>
+
+                <div id="therapist-list" class="space-y-6">
+                    <!-- 結果由 JS 動態生成 -->
+                </div>
+                
+                <div class="mt-12 text-center">
+                     <p class="text-gray-500 text-sm mb-6">沒有找到完全符合的？沒關係，您可以先隨意預約一位，或聯繫我們安排。</p>
+                     <a href="booking.html" class="inline-block border-2 border-morandi-green text-morandi-green px-8 py-3 rounded-lg font-medium hover:bg-morandi-green hover:text-white transition-all duration-300 ease-in-out">直接前往預約</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 頁尾 (與首頁相同) -->
+    <footer class="bg-morandi-mist border-t border-morandi-green/20 pt-20 pb-10 text-morandi-text mt-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <img src="images/06-header.png" alt="Logo" class="h-10 mb-6 object-contain mx-auto md:mx-0" onerror="this.src='https://via.placeholder.com/150x48?text=Logo'">
+                    <p class="text-sm text-[#459DBB] leading-loose">在陪伴中療癒，在關懷裡茁壯</p>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">快速連結</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li><a href="#" class="hover:text-morandi-green transition-all duration-300 ease-in-out">加入官方 Line</a></li>
+                        <li><a href="booking.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">預約諮商</a></li>
+                        <li><a href="#" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理衛教／講座申請</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">聯絡方式</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li>(02) 2427-1000</li>
+                        <li>基隆市信義區信一路150號5樓A室</li>
+                        <li><a href="mailto:heedheart1111@gmail.com" class="hover:text-morandi-green transition-all duration-300 ease-in-out">heedheart1111@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">營業時間</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li>週一至週五 10:00~21:00</li>
+                        <li>週六 10:00~18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-morandi-green/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-500">© 2026 耘心心理諮商所. All Rights Reserved.</p>
+                <div class="flex gap-5 text-xs text-gray-500">
+                    <a href="privacy.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">隱私權政策</a>
+                    <a href="contact.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">交通資訊</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 手機選單與下拉邏輯 (與首頁相同) ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', String(!isOpen));
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const dropdownButtons = document.querySelectorAll('.dropdown > button');
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const menu = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                    if (m !== menu) {
+                        m.classList.remove('show');
+                        m.previousElementSibling.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                menu.classList.toggle('show');
+                button.setAttribute('aria-expanded', String(!isExpanded));
+            });
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                    menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // --- 媒合邏輯區塊 ---
+
+        // 1. 定義議題
+        const issues = [
+            { id: 'anxiety', label: '焦慮' },
+            { id: 'depression', label: '憂鬱' },
+            { id: 'trauma', label: '創傷' },
+            { id: 'interpersonal', label: '人際' },
+            { id: 'intimacy', label: '親密關係' }
+        ];
+
+        // 2. 模擬心理師資料庫 (包含專長標籤)
+        const therapists = [
+            {
+                id: 1,
+                name: '林語心',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200',
+                specialties: ['anxiety', 'depression', 'trauma'],
+                description: '擅長以溫暖包容的態度，陪伴個案走過情緒低谷與創傷復原。'
+            },
+            {
+                id: 2,
+                name: '陳柏宇',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=200&h=200',
+                specialties: ['interpersonal', 'intimacy'],
+                description: '專精於伴侶諮商與人際界線探索，協助釐清關係中的互動盲點。'
+            },
+            {
+                id: 3,
+                name: '黃雅婷',
+                title: '臨床心理師',
+                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200&h=200',
+                specialties: ['anxiety', 'interpersonal'],
+                description: '結合認知行為療法，協助個案具體處理生活中的焦慮與社交壓力。'
+            },
+            {
+                id: 4,
+                name: '張家瑋',
+                title: '諮商心理師',
+                image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200',
+                specialties: ['depression', 'intimacy', 'trauma'],
+                description: '運用深度心理學取向，陪伴探索原生家庭影響與深層的情緒議題。'
+            }
+        ];
+
+        // 3. 初始化畫面與綁定事件
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('issue-container');
+            const startBtn = document.getElementById('start-match-btn');
+            const reselectBtn = document.getElementById('reselect-btn');
+            const selectionSection = document.getElementById('selection-section');
+            const resultsSection = document.getElementById('results-section');
+            const errorMsg = document.getElementById('error-message');
+
+            // 渲染議題選項
+            issues.forEach(issue => {
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = `
+                    <input type="checkbox" id="issue-${issue.id}" value="${issue.id}" class="issue-checkbox hidden">
+                    <label for="issue-${issue.id}" class="cursor-pointer px-6 py-3 rounded-full border-2 border-gray-200 text-gray-600 hover:border-morandi-green transition-all duration-200 block text-center select-none font-medium">
+                        ${issue.label}
+                    </label>
+                `;
+                container.appendChild(wrapper);
+            });
+
+            // 點擊開始媒合
+            startBtn.addEventListener('click', () => {
+                // 取得選中的項目
+                const selectedCheckboxes = document.querySelectorAll('.issue-checkbox:checked');
+                if (selectedCheckboxes.length === 0) {
+                    errorMsg.classList.remove('hidden');
+                    return;
+                }
+                
+                errorMsg.classList.add('hidden');
+                const selectedIssues = Array.from(selectedCheckboxes).map(cb => cb.value);
+
+                // 執行媒合邏輯並顯示
+                displayResults(selectedIssues);
+
+                // 動畫切換區塊
+                selectionSection.classList.remove('visible-state');
+                selectionSection.classList.add('hidden-state');
+                
+                setTimeout(() => {
+                    resultsSection.classList.remove('hidden-state');
+                    resultsSection.classList.add('visible-state');
+                }, 400); // 等待淡出完成
+            });
+
+            // 點擊重新選擇
+            reselectBtn.addEventListener('click', () => {
+                resultsSection.classList.remove('visible-state');
+                resultsSection.classList.add('hidden-state');
+                
+                setTimeout(() => {
+                    selectionSection.classList.remove('hidden-state');
+                    selectionSection.classList.add('visible-state');
+                }, 400);
+            });
+        });
+
+        // 4. 媒合計算與渲染邏輯
+        function displayResults(selectedIssues) {
+            const listContainer = document.getElementById('therapist-list');
+            listContainer.innerHTML = ''; // 清空先前結果
+
+            // 計算每位心理師的分數 (中幾個標籤就得幾分)
+            const scoredTherapists = therapists.map(therapist => {
+                const score = therapist.specialties.reduce((acc, specialty) => {
+                    return acc + (selectedIssues.includes(specialty) ? 1 : 0);
+                }, 0);
+                return { ...therapist, matchScore: score };
+            });
+
+            // 排序：分數高的在前，若分數相同則保持原本順序或隨機（這裡維持原序）
+            scoredTherapists.sort((a, b) => b.matchScore - a.matchScore);
+
+            // 過濾掉0分的(可選，這裡選擇保留但排在後面，或者只顯示大於0的)
+            const matchedTherapists = scoredTherapists.filter(t => t.matchScore > 0);
+
+            if(matchedTherapists.length === 0){
+                 listContainer.innerHTML = `<div class="p-8 text-center bg-gray-50 rounded-2xl text-gray-500">目前沒有完全吻合的心理師，建議您可以直接預約，由行政人員為您安排。</div>`;
+                 return;
+            }
+
+            // 渲染卡片
+            matchedTherapists.forEach((therapist, index) => {
+                // 找出配對成功的標籤中文
+                const matchedLabels = therapist.specialties
+                    .filter(s => selectedIssues.includes(s))
+                    .map(s => issues.find(i => i.id === s).label);
+
+                const card = document.createElement('div');
+                // 動畫延遲出現效果
+                card.className = `bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-md transition-all duration-300 transform opacity-0 translate-y-4`;
+                
+                // 設定一點動畫延遲
+                setTimeout(() => {
+                    card.classList.remove('opacity-0', 'translate-y-4');
+                }, 100 * (index + 1));
+
+                card.innerHTML = `
+                    <div class="flex-shrink-0">
+                        <img src="${therapist.image}" alt="${therapist.name} 心理師" class="w-24 h-24 rounded-full object-cover border-4 border-morandi-mist">
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-xl font-medium text-morandi-brandBrown">${therapist.name}</h3>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">${therapist.title}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${matchedLabels.map(label => `<span class="text-xs bg-morandi-mist text-morandi-darkGreen px-2 py-1 rounded font-medium">✓ 匹配: ${label}</span>`).join('')}
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">${therapist.description}</p>
+                    </div>
+                    <div class="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">
+                        <a href="booking.html?therapist=${therapist.id}" class="block w-full text-center bg-white border border-morandi-green text-morandi-green hover:bg-morandi-green hover:text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium">
+                            預約此心理師
+                        </a>
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
