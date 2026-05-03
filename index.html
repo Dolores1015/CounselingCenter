@@ -40,83 +40,358 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": "耘心心理諮商所",
+            "description": "提供專業心理諮商服務，陪伴您在迷霧中找回內心的平靜。",
+            "image": "images/og-image.jpg",
+            "openingHours": [
+                "Mo-Fr 13:30-21:00",
+                "Sa 09:00-17:00"
+            ],
+            "areaServed": "Taiwan"
+        }
+    </script>
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #F6FAFA; color: #394242; }
+        .hero-gradient {
+            background:
+                linear-gradient(90deg, rgba(246, 250, 250, 0.96) 0%, rgba(234, 246, 245, 0.88) 44%, rgba(246, 250, 250, 0.48) 100%),
+                url('https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center right;
+        }
         .nav-blur { backdrop-filter: blur(12px); background-color: rgba(246, 250, 250, 0.90); }
         .transition-soft { transition: all 0.28s ease; }
         .focus-ring:focus-visible { outline: 3px solid rgba(68, 177, 177, 0.42); outline-offset: 3px; }
+        @media (max-width: 767px) {
+            .hero-gradient {
+                background:
+                    linear-gradient(rgba(246, 250, 250, 0.95), rgba(234, 246, 245, 0.82)),
+                    url('https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&q=80&w=1400');
+                background-position: center right;
+            }
+        }
     </style>
 </head>
-
 <body class="font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:shadow-soft">
+        跳至主要內容
+    </a>
 
-<nav class="fixed w-full z-50 nav-blur border-b border-gray-200">
+<nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <div class="flex justify-between items-center h-20">
 
             <!-- Logo -->
-            <a href="index.html">
-                <img src="images/06-header.png" class="h-12">
-            </a>
+            <div class="flex items-center">
+                <a href="index.html" class="focus-ring rounded-md">
+                    <img src="images/06-header.png" alt="耘心心理諮商所 Logo" class="h-12 w-auto object-contain">
+                </a>
+            </div>
 
-            <!-- Desktop -->
-            <div class="hidden md:flex items-center space-x-6 font-medium">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6 text-base tracking-wide font-medium">
 
+                <!-- 關於耘心 -->
                 <div class="relative group">
-                    <button>關於耘心</button>
-                    <div class="absolute mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-                        <a href="about.html" class="block px-4 py-3">成立宗旨</a>
-                        <a href="team.html" class="block px-4 py-3">心理師團隊</a>
+                    <button class="hover:text-morandi-green transition-soft focus-ring rounded-md">
+                        關於耘心
+                    </button>
+                    <div class="absolute left-0 mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-soft border border-gray-100">
+                        <a href="about.html" class="block px-4 py-3 hover:bg-morandi-mist">成立宗旨</a>
+                        <a href="team.html" class="block px-4 py-3 hover:bg-morandi-mist">心理師團隊</a>
                     </div>
                 </div>
 
+                <!-- 諮商服務 -->
                 <div class="relative group">
-                    <button>諮商服務</button>
-                    <div class="absolute mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-                        <a href="services.html" class="block px-4 py-3">服務項目</a>
-                        <a href="enterprise.html" class="block px-4 py-3">企業服務 (EAP)</a>
+                    <button class="hover:text-morandi-green transition-soft focus-ring rounded-md">
+                        諮商服務
+                    </button>
+                    <div class="absolute left-0 mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-soft border border-gray-100">
+                        <a href="services.html" class="block px-4 py-3 hover:bg-morandi-mist">服務項目</a>
+                        <a href="enterprise.html" class="block px-4 py-3 hover:bg-morandi-mist">企業服務 (EAP)</a>
                     </div>
                 </div>
 
+                <!-- 心靈專欄 -->
                 <div class="relative group">
-                    <button>心靈專欄</button>
-                    <div class="absolute mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-                        <a href="news.html" class="block px-4 py-3">最新消息</a>
-                        <a href="articles.html" class="block px-4 py-3">精選文章</a>
+                    <button class="hover:text-morandi-green transition-soft focus-ring rounded-md">
+                        心靈專欄
+                    </button>
+                    <div class="absolute left-0 mt-3 w-44 bg-white shadow-soft rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-soft border border-gray-100">
+                        <a href="news.html" class="block px-4 py-3 hover:bg-morandi-mist">最新消息</a>
+                        <a href="articles.html" class="block px-4 py-3 hover:bg-morandi-mist">精選文章</a>
                     </div>
                 </div>
 
-                <a href="booking.html" class="bg-morandi-green text-white px-6 py-2 rounded-lg">
+                <!-- 立即預約 -->
+                <a href="booking.html" class="bg-morandi-green text-white px-6 py-2.5 rounded-lg hover:bg-morandi-darkGreen transition-soft shadow-sm focus-ring">
+                    立即預約
+                </a>
+            </div>
+
+            <!-- Mobile Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" type="button"
+                    class="text-morandi-text focus-ring rounded-md p-2"
+                    aria-label="開啟選單"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 pb-5">
+
+            <div class="grid gap-2 pt-4 text-lg">
+
+                <p class="px-2 py-2 font-medium">關於耘心</p>
+                <a href="about.html" class="px-4 py-2 rounded-lg hover:bg-white">成立宗旨</a>
+                <a href="team.html" class="px-4 py-2 rounded-lg hover:bg-white">心理師團隊</a>
+
+                <p class="px-2 py-2 font-medium mt-2">諮商服務</p>
+                <a href="services.html" class="px-4 py-2 rounded-lg hover:bg-white">服務項目</a>
+                <a href="enterprise.html" class="px-4 py-2 rounded-lg hover:bg-white">企業服務 (EAP)</a>
+
+                <p class="px-2 py-2 font-medium mt-2">心靈專欄</p>
+                <a href="news.html" class="px-4 py-2 rounded-lg hover:bg-white">最新消息</a>
+                <a href="articles.html" class="px-4 py-2 rounded-lg hover:bg-white">精選文章</a>
+
+                <a href="booking.html"
+                   class="mt-3 text-center bg-morandi-green text-white px-6 py-3 rounded-lg hover:bg-morandi-darkGreen transition-soft shadow-sm">
                     立即預約
                 </a>
 
             </div>
-
-            <!-- Mobile -->
-            <button id="mobile-menu-button" class="md:hidden">☰</button>
-
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden border-t">
-
-            <p>關於耘心</p>
-            <a href="about.html">成立宗旨</a>
-            <a href="team.html">心理師團隊</a>
-
-            <p>諮商服務</p>
-            <a href="services.html">服務項目</a>
-            <a href="enterprise.html">企業服務 (EAP)</a>
-
-            <p>心靈專欄</p>
-            <a href="news.html">最新消息</a>
-            <a href="articles.html">精選文章</a>
-
-            <a href="booking.html">立即預約</a>
-
-        </div>
     </div>
 </nav>
+    <main id="main-content">
+        <section class="relative min-h-screen flex items-center hero-gradient pt-24 pb-16">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight md:leading-[1.25] mb-8 text-morandi-brandBrown">
+                        找回心裡的平靜<br>
+                        從一段對話開始
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed font-light">
+                        在喧囂的城市角落，我們為您預留了一處靜謐空間。<br class="hidden md:block">
+                        在這裡，沒有標籤與審判，只有專業的傾聽與陪伴。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#booking" class="inline-block text-center bg-morandi-green text-white px-8 py-4 rounded-lg text-lg font-medium hover:shadow-lg hover:bg-morandi-darkGreen transition-soft shadow-md focus-ring">預約初步晤談</a>
+                        <a href="#services" class="inline-block text-center border-2 border-morandi-green text-morandi-green px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-green hover:text-white transition-soft focus-ring">了解諮商流程</a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50" aria-hidden="true">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </section>
 
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+                <h2 class="text-3xl font-light mb-5 text-morandi-darkGreen">為什麼選擇耘心</h2>
+                <p class="max-w-2xl mx-auto text-gray-500 leading-relaxed mb-14">
+                    我們重視每一次相遇的安全感，從專業倫理、空間安排到諮商流程，都讓您能放心靠近自己的內在。
+                </p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="p-8 rounded-xl bg-morandi-beige transition-soft hover:-translate-y-1 hover:shadow-soft">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-sm">
+                            <svg class="w-6 h-6 text-morandi-green" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">絕對隱私</h3>
+                        <p class="text-gray-500 font-light leading-relaxed">嚴格遵守諮商倫理與保密協定，提供獨立出入動線，讓您安心述說。</p>
+                    </article>
+                    <article class="p-8 rounded-xl bg-morandi-beige transition-soft hover:-translate-y-1 hover:shadow-soft">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-sm">
+                            <svg class="w-6 h-6 text-morandi-green" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">專業證照</h3>
+                        <p class="text-gray-500 font-light leading-relaxed">團隊皆具備國家高考諮商心理師證照，持續精進多元心理治療學派。</p>
+                    </article>
+                    <article class="p-8 rounded-xl bg-morandi-beige transition-soft hover:-translate-y-1 hover:shadow-soft">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-sm">
+                            <svg class="w-6 h-6 text-morandi-green" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">溫馨環境</h3>
+                        <p class="text-gray-500 font-light leading-relaxed">空間設計結合自然光影與柔和色調，打造如家一般的放鬆氛圍。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-24 bg-morandi-beige">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
+                    <div>
+                        <p class="text-sm tracking-[0.18em] text-morandi-darkGreen mb-4">SERVICES</p>
+                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">在不同生命階段，陪您整理心裡的重量。</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            諮商不是急著給答案，而是在穩定的關係裡，看見情緒、關係與選擇背後真正的需要。
+                        </p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <article class="bg-white p-7 rounded-xl shadow-sm border-t-4 border-morandi-green">
+                            <h3 class="text-lg font-medium mb-3 text-morandi-brandBrown">個別諮商</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm">焦慮、憂鬱、壓力調適、自我探索與生命轉銜。</p>
+                        </article>
+                        <article class="bg-white p-7 rounded-xl shadow-sm border-t-4 border-morandi-clay">
+                            <h3 class="text-lg font-medium mb-3 text-morandi-brandBrown">伴侶與關係諮商</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm">溝通衝突、親密關係修復、分合議題與界線練習。</p>
+                        </article>
+                        <article class="bg-white p-7 rounded-xl shadow-sm border-t-4 border-morandi-darkGreen">
+                            <h3 class="text-lg font-medium mb-3 text-morandi-brandBrown">親子與家庭諮商</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm">親職壓力、家庭互動、青少年情緒與照顧者支持。</p>
+                        </article>
+                        <article class="bg-white p-7 rounded-xl shadow-sm border-t-4 border-morandi-wood">
+                            <h3 class="text-lg font-medium mb-3 text-morandi-brandBrown">職場與生涯議題</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm">職涯迷惘、倦怠調適、人際壓力與工作生活平衡。</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-14">
+                    <p class="text-sm tracking-[0.18em] text-morandi-darkGreen mb-4">PROCESS</p>
+                    <h2 class="text-3xl font-light text-morandi-brandBrown">諮商流程</h2>
+                </div>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <article class="border border-morandi-mist rounded-xl p-7 bg-white/70">
+                        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-morandi-mist text-sm text-morandi-darkGreen font-medium">01</span>
+                        <h3 class="text-lg font-medium mt-4 mb-3">線上預約</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">留下基本資料與想談的方向，由專人協助安排時段。</p>
+                    </article>
+                    <article class="border border-morandi-mist rounded-xl p-7 bg-white/70">
+                        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-morandi-mist text-sm text-morandi-darkGreen font-medium">02</span>
+                        <h3 class="text-lg font-medium mt-4 mb-3">初步晤談</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">一起了解目前困擾、期待目標與適合的諮商形式。</p>
+                    </article>
+                    <article class="border border-morandi-mist rounded-xl p-7 bg-white/70">
+                        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-morandi-mist text-sm text-morandi-darkGreen font-medium">03</span>
+                        <h3 class="text-lg font-medium mt-4 mb-3">心理師媒合</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">依議題與時間需求，安排合適的專業心理師陪伴。</p>
+                    </article>
+                    <article class="border border-morandi-mist rounded-xl p-7 bg-white/70">
+                        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-morandi-mist text-sm text-morandi-darkGreen font-medium">04</span>
+                        <h3 class="text-lg font-medium mt-4 mb-3">穩定諮商</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">在固定節奏中整理經驗，逐步建立更能照顧自己的方式。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-morandi-mist">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&q=80&w=1200" alt="自然光灑落的溫暖諮商空間" class="w-full aspect-[4/3] object-cover rounded-xl shadow-soft">
+                    </div>
+                    <div>
+                        <p class="text-sm tracking-[0.18em] text-morandi-darkGreen mb-4">SPACE</p>
+                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">讓身體先安定，心才有空間慢慢說話。</h2>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            耘心的空間以自然光、低彩度色系與舒適座位為核心，減少陌生感與壓迫感。每間諮商室皆維持獨立、安靜與隱私，讓您能在被接住的氛圍裡開始。
+                        </p>
+                        <a href="about.html" class="inline-block border-2 border-morandi-green text-morandi-green px-7 py-3 rounded-lg font-medium hover:bg-morandi-green hover:text-white transition-soft focus-ring">認識我們的空間</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+                <p class="text-sm tracking-[0.18em] text-morandi-darkGreen mb-4">BOOKING</p>
+                <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">當您準備好，我們會在這裡。</h2>
+                <p class="text-gray-600 leading-relaxed mb-9">
+                    第一次諮商前不需要準備完整答案，只要帶著目前最想被理解的那一部分自己前來就可以。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="booking.html" class="inline-block bg-morandi-green text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-darkGreen transition-soft shadow-md focus-ring">立即預約諮商</a>
+                    <a href="contact.html" class="inline-block border-2 border-morandi-green text-morandi-green px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-green hover:text-white transition-soft focus-ring">聯絡我們</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-morandi-mist border-t border-morandi-green/20 pt-20 pb-10 text-morandi-text">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <img src="images/06-header.png" alt="耘心心理諮商所 Logo" class="h-10 mb-6 object-contain mx-auto md:mx-0">
+                    <p class="text-sm text-[#459DBB] leading-loose">
+                        在陪伴中療癒，在關懷裡茁壯
+                    </p>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">快速連結</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li><a href="#" class="hover:text-morandi-green transition-soft focus-ring rounded-md">加入官方 Line</a></li>
+                        <li><a href="booking.html" class="hover:text-morandi-green transition-soft focus-ring rounded-md">預約諮商</a></li>
+                        <li><a href="#" class="hover:text-morandi-green transition-soft focus-ring rounded-md">心理衛教／講座申請</a></li>
+                        <li><a href="#" class="hover:text-morandi-green transition-soft focus-ring rounded-md">更多資訊（Linktree）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">聯絡方式</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li>(02) 2427-1000</li>
+                        <li>0968-212-731</li>
+                        <li>基隆市信義區信一路150號5樓A室</li>
+                        <li><a href="mailto:heedheart1111@gmail.com" class="hover:text-morandi-green transition-soft focus-ring rounded-md">heedheart1111@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">營業時間（全預約制）</h2>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li>週一至週五　10:00~21:00</li>
+                        <li>週六　　　　10:00~18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-morandi-green/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-500">© 2026 耘心心理諮商所. All Rights Reserved.｜基隆市衛生局立案證號XY11070028號</p>
+                <div class="flex gap-5 text-xs text-gray-500">
+                    <a href="privacy.html" class="hover:text-morandi-green transition-soft focus-ring rounded-md">隱私權政策</a>
+                    <a href="contact.html" class="hover:text-morandi-green transition-soft focus-ring rounded-md">交通資訊</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', String(!isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? '開啟選單' : '關閉選單');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
