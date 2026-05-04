@@ -79,52 +79,66 @@
 </head>
 <body class="font-sans antialiased min-h-screen flex flex-col">
     <!-- 頂部導覽列 -->
-    <nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
+        <nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="rounded-md">
-                        <img src="images/06-header.png" alt="耘心心理諮商所 Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x48?text=Logo'">
+                        <img src="images/06-header.png" alt="耘心心理諮商所 Logo" class="h-12 w-auto object-contain">
                     </a>
                 </div>
+
+                <!-- 桌面版選單 -->
                 <div class="hidden md:flex items-center space-x-8 text-base tracking-wide font-medium text-morandi-text">
-                    <a href="#.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">關於我們</a>
-                    <a href="#.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理師團隊</a>
+                    <a href="about.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">關於我們</a>
+                    <a href="team.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理師團隊</a>
+                    
                     <div class="relative dropdown">
-                        <button class="flex items-center text-morandi-green transition-all duration-300 ease-in-out py-2" aria-haspopup="true" aria-expanded="false">
+                        <button class="flex items-center hover:text-morandi-green transition-all duration-300 ease-in-out py-2" aria-haspopup="true" aria-expanded="false">
                             諮商服務 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden dropdown-menu">
-                            <a href="#.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">服務項目</a>
-                            <a href="#.html" class="block px-6 py-4 bg-morandi-mist text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">媒合心理師</a>
-                            <a href="#.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">企業服務 (EAP)</a>
+                            <a href="#services" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">服務項目</a>
+                            <a href="match.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">媒合心理師</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">企業服務 (EAP)</a>
                         </div>
                     </div>
+                    
                     <div class="relative dropdown">
                         <button class="flex items-center hover:text-morandi-green transition-all duration-300 ease-in-out py-2" aria-haspopup="true" aria-expanded="false">
                             心靈專欄 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden dropdown-menu">
-                            <a href="#.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">最新消息</a>
-                            <a href="#.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">精選文章</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">最新消息</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">精選文章</a>
                         </div>
                     </div>
-                    <a href="#" class="bg-morandi-green text-white px-7 py-2.5 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
+                    
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="bg-morandi-green text-white px-7 py-2.5 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
                 </div>
+
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-morandi-text p-2 focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2 rounded-md" aria-expanded="false" aria-label="開啟選單">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
             </div>
+
+            <!-- 手機版選單 -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 pb-6 pt-2">
                 <div class="space-y-1">
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">關於我們</a>
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">心理師團隊</a>
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">服務項目</a>
-                    <a href="#" class="block px-4 py-3 bg-morandi-mist text-morandi-green rounded-lg transition-all duration-300 ease-in-out">媒合心理師</a>
+                    <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">關於我們</a>
+                    <a href="team.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">心理師團隊</a>
+                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">諮商服務</p>
+                    <a href="#services" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">服務項目</a>
+                    <a href="match.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">媒合心理師</a>
                     <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">企業服務</a>
-                    <a href="#" class="block w-full text-center bg-morandi-green text-white py-3 rounded-lg hover:bg-morandi-darkGreen mt-4">立即預約</a>
+                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">文章資訊</p>
+                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">最新消息</a>
+                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">精選文章</a>
+                    <div class="pt-4 px-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-morandi-green text-white py-3 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
+                    </div>
                 </div>
             </div>
         </div>
