@@ -224,8 +224,8 @@
                 </button>
             </div>
 
-            <!-- 橫向滑動區塊 -->
-            <div id="therapist-list" class="flex gap-6 overflow-x-auto pb-10 pt-4 snap-x snap-mandatory scrollbar-hide cursor-grab">
+            <!-- 橫向滑動區塊 (已移除 snap-x 和 snap-mandatory) -->
+            <div id="therapist-list" class="flex gap-6 overflow-x-auto pb-10 pt-4 scrollbar-hide cursor-grab">
                 <!-- 結果由 JS 動態生成 -->
             </div>
             
@@ -489,13 +489,19 @@
             const slider = document.getElementById('therapist-list');
             let isDown = false; let startX; let scrollLeft;
             slider.addEventListener('mousedown', (e) => {
-                isDown = true; slider.style.cursor = 'grabbing';
-                slider.classList.remove('snap-x', 'snap-mandatory');
+                isDown = true; 
+                slider.style.cursor = 'grabbing';
                 startX = e.pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
             });
-            slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; slider.classList.add('snap-x', 'snap-mandatory'); });
-            slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; slider.classList.add('snap-x', 'snap-mandatory'); });
+            slider.addEventListener('mouseleave', () => { 
+                isDown = false; 
+                slider.style.cursor = 'grab'; 
+            });
+            slider.addEventListener('mouseup', () => { 
+                isDown = false; 
+                slider.style.cursor = 'grab'; 
+            });
             slider.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
@@ -567,7 +573,8 @@
                         .filter(Boolean).slice(0, 3); // 最多顯示3個標籤防止卡片過長
 
                     const card = document.createElement('div');
-                    card.className = `flex-none w-72 md:w-80 bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col hover:shadow-lg transition-all duration-500 snap-center transform opacity-0 scale-95`;
+                    // 移除了 snap-center
+                    card.className = `flex-none w-72 md:w-80 bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col hover:shadow-lg transition-all duration-500 transform opacity-0 scale-95`;
                     setTimeout(() => card.classList.remove('opacity-0', 'scale-95'), 100 * (index + 1));
 
                     card.innerHTML = `
