@@ -164,10 +164,9 @@
             <!-- 表單區塊容器 -->
             <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 relative min-h-[400px]">
                 
-                <!-- 第一步：選擇對象 -->
+                <!-- 第一步：依人生階段與對象分類 -->
                 <div id="step-1" class="fade-transition visible-state">
-                    <!-- 標題改為單選 -->
-                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-6">您欲預約的諮商對象是？（單選）</h2>
+                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-6">誰需要諮商陪伴？（單選）</h2>
                     <div class="flex flex-wrap gap-4 justify-center" id="target-container"></div>
                     
                     <div class="flex flex-col-reverse md:flex-row justify-center items-center gap-4 mt-10">
@@ -176,9 +175,9 @@
                     </div>
                 </div>
 
-                <!-- 第二步：選擇議題 -->
+                <!-- 第二步：依核心議題分類 -->
                 <div id="step-2" class="fade-transition hidden-state">
-                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-6">您目前想談的議題有哪些？（可複選）</h2>
+                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-6">您目前最想談的核心議題是？（可複選）</h2>
                     <div class="flex flex-wrap gap-3 justify-center" id="issue-container"></div>
                     
                     <div class="flex flex-col-reverse md:flex-row justify-center items-center gap-4 mt-10">
@@ -188,19 +187,11 @@
                     </div>
                 </div>
 
-                <!-- 第三步：諮商形式及地點 -->
+                <!-- 第三步：依特色專長分類 -->
                 <div id="step-3" class="fade-transition hidden-state">
-                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-6">您期望的諮商形式及地點？（可複選）</h2>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-sm font-bold text-gray-500 mb-4 px-2 border-l-4 border-morandi-green">線上諮商</h3>
-                        <div class="flex flex-wrap gap-3" id="online-container"></div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-sm font-bold text-gray-500 mb-4 px-2 border-l-4 border-morandi-green">實體諮商地點</h3>
-                        <div class="flex flex-wrap gap-2" id="location-container"></div>
-                    </div>
+                    <h2 class="text-xl font-medium text-center text-morandi-brandBrown mb-3">是否有特別需要的專長？（可複選）</h2>
+                    <p class="text-center text-sm text-gray-500 mb-6">若沒有特定需求，也可以直接跳過並媒合。</p>
+                    <div class="flex flex-wrap gap-3 justify-center" id="specialty-container"></div>
 
                     <div class="flex flex-col-reverse md:flex-row justify-center items-center gap-4 mt-10">
                         <button type="button" class="btn-prev px-6 py-3 text-gray-500 hover:text-morandi-brandBrown font-medium transition-colors border border-gray-200 rounded-xl w-full md:w-auto" data-step="3">回上頁</button>
@@ -310,56 +301,82 @@
         // --- 表單選項資料定義 ---
         const config = {
             targets: [
-                { id: 'adult', label: '成人' },
-                { id: 'child', label: '青少年/兒童' },
-                { id: 'couple', label: '伴侶' },
-                { id: 'parenting', label: '親子' },
-                { id: 'family_target', label: '家庭' }
+                { id: 'child_youth', label: '兒童青少年專精' },
+                { id: 'adult_growth', label: '成人與自我成長' },
+                { id: 'couple_family', label: '伴侶、婚姻與家庭' }
             ],
             issues: [
-                { id: 'emotion', label: '情緒困擾' }, { id: 'sleep', label: '睡眠問題' },
-                { id: 'physical', label: '身心症狀' }, { id: 'behavior', label: '心理行為' },
-                { id: 'rehab', label: '障礙復健' }, { id: 'explore', label: '自我探索' },
-                { id: 'career', label: '生涯職場' }, { id: 'interpersonal', label: '人際關係' },
-                { id: 'romance', label: '感情議題' }, { id: 'sex', label: '性議題' },
-                { id: 'lgbtq', label: '同志議題' }, { id: 'family_origin', label: '原生家庭' },
-                { id: 'marriage', label: '婚姻家庭' }, { id: 'trauma', label: '創傷經驗' }
+                { id: 'emotion_stress', label: '情緒與壓力調適' },
+                { id: 'career_work', label: '職場與生涯發展' },
+                { id: 'affection_gender', label: '情感、性與多元性別' },
+                { id: 'family_relationship', label: '原生家庭與關係' },
+                { id: 'body_addiction', label: '身心症狀與成癮' },
+                { id: 'trauma_depth', label: '創傷與深度探索' }
             ],
-            locations: [
-                '基隆市', '台北市', '新北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', 
-                '臺中市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', 
-                '高雄市', '屏東縣', '屏東市', '台東縣', '花蓮縣', '宜蘭縣', '澎湖縣', 
-                '金門縣', '連江縣'
+            specialties: [
+                { id: 'addiction_medicine', label: '特殊成癮與身心醫學' },
+                { id: 'crisis_trauma', label: '危機與深度創傷' },
+                { id: 'gender_culture', label: '性別與多元文化' },
+                { id: 'techniques_media', label: '特殊技術/媒材' },
+                { id: 'women_life_events', label: '女性與特殊生命事件' }
             ]
         };
 
-        // 模擬心理師資料
         const therapists = [
-            { id: 1, name: '林語心', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
-              targets: ['adult', 'family_target', 'parenting'],
-              issues: ['emotion', 'explore', 'family_origin', 'trauma'],
-              locations: ['基隆市', '台北市', '線上諮商'],
-              description: '擅長以溫暖包容的態度，陪伴個案走過情緒低谷與創傷復原。' },
-            { id: 2, name: '陳柏宇', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400',
-              targets: ['adult', 'couple'],
-              issues: ['interpersonal', 'romance', 'sex', 'lgbtq', 'marriage'],
-              locations: ['基隆市', '新北市', '線上諮商'],
-              description: '專精於伴侶諮商與人際界線探索，協助釐清關係中的互動盲點。' },
-            { id: 3, name: '黃雅婷', title: '臨床心理師', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
-              targets: ['adult', 'child'],
-              issues: ['emotion', 'sleep', 'physical', 'career'],
-              locations: ['基隆市', '桃園市'],
-              description: '結合認知行為療法，協助個案具體處理生活中的焦慮與社交壓力。' },
-            { id: 4, name: '吳念真', title: '臨床心理師', image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=400&h=400',
-              targets: ['child', 'parenting'],
-              issues: ['emotion', 'behavior', 'rehab'],
-              locations: ['基隆市', '台北市'],
-              description: '專注於兒童青少年發展與親職教養議題，提供專業且溫暖的心理評估與介入。' },
-            { id: 5, name: '趙啟明', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&q=80&w=400&h=400',
-              targets: ['adult'],
-              issues: ['career', 'explore', 'trauma'],
-              locations: ['基隆市', '線上諮商'],
-              description: '以敘事治療取向為主，陪您重新改寫生命故事，找到專屬於您的獨特力量。' }
+            { id: 1, name: '李予澄', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['child_youth', 'couple_family'],
+              issues: ['emotion_stress', 'career_work', 'family_relationship'],
+              specialties: [],
+              highlights: ['兒童青少年', '職場與生涯', '原生家庭'],
+              description: '適合兒童青少年、伴侶與家庭關係，以及職涯壓力、原生家庭議題的整理與陪伴。' },
+            { id: 2, name: '鍾瀚陞', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['adult_growth', 'couple_family'],
+              issues: ['emotion_stress', 'career_work', 'body_addiction', 'trauma_depth'],
+              specialties: ['addiction_medicine'],
+              highlights: ['戒癮專門', '毒酒議題', '身心症'],
+              description: '聚焦成人自我成長、伴侶家庭與身心症狀，並具備毒品、酒精與戒癮相關議題專長。' },
+            { id: 3, name: '邱郁庭', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['child_youth', 'adult_growth', 'couple_family'],
+              issues: ['emotion_stress', 'career_work', 'affection_gender', 'family_relationship', 'trauma_depth'],
+              specialties: ['gender_culture', 'techniques_media'],
+              highlights: ['伴侶諮商', '同志/多元', '夢境與牌卡'],
+              description: '可協助青少年、成人與伴侶諮商，特別適合多元性別、自我探索、夢境與牌卡媒材。' },
+            { id: 4, name: '張樂平', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['child_youth', 'couple_family'],
+              issues: ['emotion_stress', 'affection_gender', 'family_relationship'],
+              specialties: ['gender_culture'],
+              highlights: ['英語諮商', '遠距諮商', '性議題'],
+              description: '可針對兒童青少年、遠距伴侶家庭、性議題與性侵害相關經驗提供支持，也可進行英語諮商。' },
+            { id: 5, name: '呂承寬', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['child_youth', 'adult_growth', 'couple_family'],
+              issues: ['emotion_stress', 'affection_gender', 'family_relationship', 'body_addiction', 'trauma_depth'],
+              specialties: ['women_life_events'],
+              highlights: ['感情議題', '身心議題', '流產/未成年懷孕'],
+              description: '陪伴兒少、成人與家庭議題，並可處理感情、身心症狀、流產議題與未成年懷孕等生命事件。' },
+            { id: 6, name: '石久明', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['adult_growth', 'couple_family'],
+              issues: ['emotion_stress', 'affection_gender'],
+              specialties: ['gender_culture', 'techniques_media'],
+              highlights: ['情感修補', '同志議題', '正念減壓'],
+              description: '適合成人自我成長、伴侶家庭中的情感修補、多元性別議題，以及正念減壓練習。' },
+            { id: 7, name: '鄭雲卿', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['adult_growth'],
+              issues: ['emotion_stress', 'career_work', 'family_relationship', 'body_addiction', 'trauma_depth'],
+              specialties: ['crisis_trauma', 'women_life_events'],
+              highlights: ['高壓力族群', '照護者', '喪親/長照'],
+              description: '適合高壓力族群、照護者與長期照顧者，也可協助工作壓力、重度憂鬱、喪親與自律神經議題。' },
+            { id: 8, name: '王蘋', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1619895862022-09114b41f16f?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['child_youth', 'adult_growth'],
+              issues: ['emotion_stress', 'career_work', 'body_addiction'],
+              specialties: [],
+              highlights: ['兒童青少年', '成人成長', '身心調適'],
+              description: '提供兒童青少年與成人諮商，適合情緒壓力、職涯議題與身心症狀的穩定調適。' },
+            { id: 9, name: '徐健豪', title: '諮商心理師', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400',
+              targets: ['adult_growth'],
+              issues: ['emotion_stress', 'trauma_depth'],
+              specialties: ['crisis_trauma'],
+              highlights: ['危機處理', '深層創傷', '自殺自傷'],
+              description: '可針對成人自我成長、危機處理、深層創傷與自殺自傷議題提供更精準的支持。' }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -390,22 +407,13 @@
             });
 
             // 生成第三層選單 (保持 type="checkbox")
-            const onlineContainer = document.getElementById('online-container');
-            onlineContainer.innerHTML = `
-                <div>
-                    <input type="checkbox" id="loc-online" value="線上諮商" class="custom-option hidden" data-group="location">
-                    <label for="loc-online" class="cursor-pointer px-6 py-2.5 rounded-full border-2 border-gray-200 text-gray-600 hover:border-morandi-green transition-all duration-200 block text-center select-none text-sm font-medium">
-                        🌐 線上諮商
-                    </label>
-                </div>
-            `;
-            const locContainer = document.getElementById('location-container');
-            config.locations.forEach((loc, idx) => {
-                locContainer.innerHTML += `
+            const specialtyContainer = document.getElementById('specialty-container');
+            config.specialties.forEach(s => {
+                specialtyContainer.innerHTML += `
                     <div>
-                        <input type="checkbox" id="loc-${idx}" value="${loc}" class="custom-option hidden" data-group="location">
-                        <label for="loc-${idx}" class="cursor-pointer px-4 py-2 rounded-lg border border-gray-200 text-gray-500 hover:border-morandi-green hover:text-morandi-green transition-all duration-200 block text-center select-none text-sm">
-                            ${loc}
+                        <input type="checkbox" id="specialty-${s.id}" value="${s.id}" class="custom-option hidden" data-group="specialty">
+                        <label for="specialty-${s.id}" class="cursor-pointer px-5 py-2.5 rounded-full border-2 border-gray-200 text-gray-600 hover:border-morandi-green transition-all duration-200 block text-center select-none text-sm font-medium">
+                            ${s.label}
                         </label>
                     </div>
                 `;
@@ -460,7 +468,7 @@
                 btn.addEventListener('click', (e) => {
                     const step = parseInt(e.target.dataset.step);
                     // 清除該步驟已選項目
-                    let group = step === 1 ? 'target' : (step === 2 ? 'issue' : 'location');
+                    let group = step === 1 ? 'target' : (step === 2 ? 'issue' : 'specialty');
                     document.querySelectorAll(`input[data-group="${group}"]`).forEach(cb => cb.checked = false);
                     
                     if(step === 3) executeMatch();
@@ -514,20 +522,21 @@
                 // 因為已經統一使用 data-group，所以這裡抓取 checked 的邏輯，radio 和 checkbox 都可以完美適用
                 const selectedTargets = Array.from(document.querySelectorAll('input[data-group="target"]:checked')).map(cb => cb.value);
                 const selectedIssues = Array.from(document.querySelectorAll('input[data-group="issue"]:checked')).map(cb => cb.value);
-                const selectedLocations = Array.from(document.querySelectorAll('input[data-group="location"]:checked')).map(cb => cb.value);
+                const selectedSpecialties = Array.from(document.querySelectorAll('input[data-group="specialty"]:checked')).map(cb => cb.value);
 
                 let matchedTherapists = [];
                 let isSystemRecommended = false;
 
-                // 評分計算：對象(權重高) + 議題 + 地點(權重高)
+                // 評分計算：對象(權重高) + 核心議題 + 特色專長
                 const scoredTherapists = therapists.map(t => {
                     let score = 0;
                     let targetMatch = selectedTargets.length === 0 || t.targets.some(tgt => selectedTargets.includes(tgt));
-                    let locMatch = selectedLocations.length === 0 || t.locations.some(loc => selectedLocations.includes(loc));
+                    let specialtyMatch = selectedSpecialties.length === 0 || t.specialties.some(item => selectedSpecialties.includes(item));
                     
-                    if (targetMatch && locMatch) {
+                    if (targetMatch && specialtyMatch) {
                         score += 10; // 基本門檻過關
-                        score += t.issues.reduce((acc, issue) => acc + (selectedIssues.includes(issue) ? 2 : 0), 0);
+                        score += t.issues.reduce((acc, issue) => acc + (selectedIssues.includes(issue) ? 3 : 0), 0);
+                        score += t.specialties.reduce((acc, specialty) => acc + (selectedSpecialties.includes(specialty) ? 2 : 0), 0);
                     }
                     return { ...t, matchScore: score };
                 });
@@ -568,8 +577,11 @@
                 }
 
                 list.forEach((therapist, index) => {
-                    const matchedIssueLabels = therapist.issues
-                        .map(i => config.issues.find(c => c.id === i)?.label)
+                    const cardLabels = [
+                        ...therapist.highlights,
+                        ...therapist.issues.map(i => config.issues.find(c => c.id === i)?.label),
+                        ...therapist.specialties.map(s => config.specialties.find(c => c.id === s)?.label)
+                    ]
                         .filter(Boolean).slice(0, 3); // 最多顯示3個標籤防止卡片過長
 
                     const card = document.createElement('div');
@@ -580,7 +592,7 @@
                     card.innerHTML = `
                         <div class="w-full h-56 mb-5 overflow-hidden rounded-2xl flex-shrink-0 bg-morandi-mist no-select pointer-events-none relative">
                             <img src="${therapist.image}" alt="${therapist.name} 心理師" class="w-full h-full object-cover">
-                            ${therapist.locations.includes('線上諮商') ? '<span class="absolute top-3 right-3 bg-white/90 text-morandi-darkGreen text-xs px-2 py-1 rounded-md font-bold backdrop-blur-sm">支援線上</span>' : ''}
+                            ${therapist.highlights[0] ? `<span class="absolute top-3 right-3 bg-white/90 text-morandi-darkGreen text-xs px-2 py-1 rounded-md font-bold backdrop-blur-sm">${therapist.highlights[0]}</span>` : ''}
                         </div>
                         <div class="flex-grow flex flex-col w-full no-select">
                             <div class="flex items-center justify-between mb-3">
@@ -588,7 +600,7 @@
                                 <span class="text-xs text-morandi-darkGreen bg-morandi-mist px-2.5 py-1 rounded-full font-medium">${therapist.title}</span>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                ${matchedIssueLabels.map(label => `<span class="text-xs border border-gray-200 text-gray-500 px-2.5 py-1 rounded-full">#${label}</span>`).join('')}
+                                ${cardLabels.map(label => `<span class="text-xs border border-gray-200 text-gray-500 px-2.5 py-1 rounded-full">#${label}</span>`).join('')}
                             </div>
                             <p class="text-sm text-gray-600 leading-relaxed mb-8 flex-grow pointer-events-none">${therapist.description}</p>
                             <a href="booking.html?therapist=${therapist.id}" class="block w-full text-center bg-white border-2 border-morandi-green text-morandi-green hover:bg-morandi-green hover:text-white px-6 py-3 rounded-xl transition-all duration-300 font-medium mt-auto" draggable="false">
