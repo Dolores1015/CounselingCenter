@@ -12,7 +12,12 @@
     <meta name="theme-color" content="#44B1B1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入 Noto Sans TC 與 LXGW WenKai TC (霞鶩文楷 Regular 400) -->
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入 AOS 動態效果庫 CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,6 +37,7 @@
                     },
                     fontFamily: {
                         sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['LXGW WenKai TC', 'serif'] /* 將襯線字體改為霞鶩文楷 */
                     },
                     boxShadow: {
                         soft: '0 18px 45px rgba(31, 79, 82, 0.10)'
@@ -42,7 +48,7 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { background-color: #F6FAFA; color: #394242; }
+        body { background-color: #F6FAFA; color: #394242; overflow-x: hidden; }
         .nav-blur { backdrop-filter: blur(12px); background-color: rgba(246, 250, 250, 0.90); }
         .transition-soft { transition: all 0.28s ease; }
         .focus-ring:focus-visible { outline: 3px solid rgba(68, 177, 177, 0.42); outline-offset: 3px; }
@@ -145,15 +151,15 @@
             </div>
         </section>
 
-        <section class="py-24 bg-white">
+        <!-- 成立宗旨區塊 -->
+        <section class="py-24 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-14 items-center">
-                    <div>
-                        <!-- 已替換為指定路徑的照片 -->
+                    <div data-aos="fade-right" data-aos-duration="1000">
                         <img src="images/Gemini_p5sb.webp" alt="明亮安靜的室內諮商空間" class="w-full aspect-[4/3] object-cover rounded-xl shadow-soft">
                     </div>
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">成立宗旨</h2>
+                    <div data-aos="fade-left" data-aos-duration="1000">
+                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">成立宗旨</h2>
                         <div class="space-y-5 text-gray-600 leading-relaxed">
                             <p>耘心心理諮商所位於基隆，我們提供專業、穩定且重視隱私的心理諮商服務。這裡不是要求您立刻堅強的地方，而是一個可以暫時放下防備、練習理解自己的空間。</p>
                             <p>我們看重諮商關係中的安全感與節奏感。無論您正在面對情緒低落、焦慮壓力、關係困擾、家庭互動或生命轉折，心理師會與您一起釐清經驗、理解情緒，也慢慢找回能支持自己的力量。</p>
@@ -163,19 +169,23 @@
             </div>
         </section>
 
-        <section class="py-24 bg-morandi-beige border-t border-b border-gray-100">
+        <!-- 所長的話區塊 -->
+        <section class="py-24 bg-morandi-beige border-t border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
-                    <div class="order-2 lg:order-1">
-                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">所長的話</h2>
+                    <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">所長的話</h2>
                         <div class="space-y-5 text-gray-600 leading-relaxed font-light">
                             <p class="text-lg font-medium text-morandi-brandBrown">「在變動的世界裡，為自己留一片安穩的內心步道。」</p>
                             <p>走入心理諮商，往往需要很大的勇氣。許多人在來到諮商室前，已經獨自撐過了無數個迷茫、焦慮與不安的夜晚。在耘心，我們不急著給予批判或貼上標籤，而是由衷希望能成為一座燈塔，在晦暗中溫柔接住每一份疲憊。</p>
                             <p>『耘心』二字取自耕耘心靈之意。心靈就如同一方土壤，需要時間灌溉、除草與陪伴，方能再次萌發新芽。不論您正身處人生的哪一個十字路口，我都期盼這裡能成為您最安心的停泊點，讓我們一同並肩，找回內在的光芒與力量。</p>
-                            <p class="pt-4 text-right font-medium text-morandi-brandBrown">— 所長 李予澄</p>
+                            <!-- 字體更新為 LXGW WenKai TC，並設定為 font-normal (400) -->
+                            <p class="pt-4 text-right font-normal font-serif text-xl text-morandi-brandBrown tracking-wide">
+                                — 所長 李予澄
+                            </p>
                         </div>
                     </div>
-                    <div class="order-1 lg:order-2 flex justify-center">
+                    <div class="order-1 lg:order-2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
                         <div class="relative">
                             <div class="absolute -inset-2 bg-morandi-mist rounded-2xl -rotate-2"></div>
                             <img src="images/Li_Yucheng.webp" alt="所長 李予澄心理師肖像" class="relative w-72 md:w-80 aspect-[3/4] object-cover rounded-2xl shadow-md">
@@ -185,14 +195,16 @@
             </div>
         </section>
 
-        <section class="py-24 bg-white border-b border-gray-100">
+        <!-- 空間環境區塊 -->
+        <section class="py-24 bg-white border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug">空間環境</h2>
+                <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down" data-aos-duration="1000">
+                    <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug">空間環境</h2>
                     <p class="text-gray-500 mt-4 font-light">隱密、溫馨且充滿綠意與木質調的空間，只為讓您能全然放鬆卸下心防。</p>
                 </div>
+                
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm">
+                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                         <div class="overflow-hidden aspect-[4/3]">
                             <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" alt="溫馨溫暖的諮商室" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
@@ -200,7 +212,7 @@
                             <p class="font-medium text-morandi-brandBrown text-sm">個別諮商室「耕心」</p>
                         </div>
                     </div>
-                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm">
+                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
                         <div class="overflow-hidden aspect-[4/3]">
                             <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800" alt="沙發與柔和燈光" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
@@ -208,15 +220,15 @@
                             <p class="font-medium text-morandi-brandBrown text-sm">伴侶與家庭諮商空間</p>
                         </div>
                     </div>
-                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm">
+                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                         <div class="overflow-hidden aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="溫暖陽光接待區" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="溫慢陽光接待區" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-4 bg-white text-center">
                             <p class="font-medium text-morandi-brandBrown text-sm">明亮舒緩的休息接待區</p>
                         </div>
                     </div>
-                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm">
+                    <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="550">
                         <div class="overflow-hidden aspect-[4/3]">
                             <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800" alt="角落沙發與綠植" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
@@ -228,11 +240,12 @@
             </div>
         </section>
 
+        <!-- 其他區塊保持不變 -->
         <section class="py-24 bg-morandi-beige border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">什麼時候可以來談談</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">什麼時候可以來談談</h2>
                         <p class="text-gray-600 leading-relaxed">
                             不需要等到撐不下去才尋求協助。當您開始覺得某些感受反覆出現、關係卡住、生活失去方向，諮商就可以是一個整理自己的起點。
                         </p>
@@ -263,7 +276,7 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">地理位置</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">地理位置</h2>
                         <div class="space-y-4 text-gray-600">
                             <p class="flex items-start">
                                 <span class="font-medium text-morandi-green mr-2">地址：</span>
@@ -313,7 +326,7 @@
 
         <section class="py-24 bg-morandi-beige border-t border-gray-100">
             <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-                <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">讓一段對話，成為照顧自己的開始</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">讓一段對話，成為照顧自己的開始</h2>
                 <p class="text-gray-600 leading-relaxed mb-9">
                     如果您正在尋找一個能安心說話的地方，耘心願意陪您慢慢梳理眼前的困難，也陪您看見自己一路走來的努力。
                 </p>
@@ -370,7 +383,13 @@
         </div>
     </footer>
 
+    <!-- 引入 AOS 動態效果庫 JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            once: true 
+        });
+
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
