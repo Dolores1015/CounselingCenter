@@ -58,6 +58,24 @@
                 background-position: center right;
             }
         }
+
+        .service-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card-desc {
+            background: rgba(255, 255, 255, 0.45);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+            text-align: justify;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -132,12 +150,13 @@
         <section class="relative min-h-screen flex items-center hero-gradient pt-24 pb-16">
             <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                 <div class="max-w-2xl">
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 text-morandi-brandBrown">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-[1.35] md:leading-[1.28] mb-8 text-morandi-brandBrown">
                         陪你走過迷惘<br>找回內在安定的力量
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed font-light">
-                        卸下日常的疲憊與防備，<br class="hidden md:block">
-                        讓我們陪你一起，溫柔地梳理那些沒說出口的心事。
+                    <p class="text-lg md:text-xl text-gray-700 mb-10 leading-[1.95] font-light max-w-xl">
+                        卸下日常累積的疲憊與防備，<br class="hidden md:block">
+                        讓我們陪你慢慢梳理那些還沒說出口的心事，<br class="hidden md:block">
+                        在理解裡找回可以安放自己的位置。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="match.html" class="inline-block text-center bg-morandi-green text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">媒合心理師</a>
@@ -150,103 +169,102 @@
         <!-- 服務項目區塊 -->
         <section id="services" class="py-24 bg-[#F2F6F6]">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown leading-snug mb-6">諮商服務項目</h2>
-                    <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                <div class="text-center mb-14">
+                    <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown leading-snug mb-5">諮商服務項目</h2>
+                    <p class="text-gray-600 leading-[1.9] max-w-2xl mx-auto">
                         諮商不是急著給答案，而是在穩定的關係裡，看見情緒、關係與選擇背後真正的需要。
                     </p>
                 </div>
                 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <article class="bg-[#F0F7FF] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-blue-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#2C4A6B] text-center">個別諮商</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#2C4A6B]">2000-3000 <span class="text-sm font-normal text-gray-500">元</span></span>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <article class="service-card bg-[#E6D9FF] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/cf5bb4d8-addb-4b06-92aa-d7c7eb435455.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#2C4A6B]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#2C4A6B]">50 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">個別諮商</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2000-3000元 / 50分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            當你遇到感情、婚姻、親子關係、原生家庭、人際互動、生涯選擇、職場壓力，或焦慮、憂鬱、失眠等困擾時，心理師會陪你梳理經驗，重新整頓生命的方向。
+                        </p>
                     </article>
                     
-                    <article class="bg-[#FFF4F4] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-rose-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#6B2C3A] text-center">伴侶 / 婚姻諮商</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#6B2C3A]">2400-3800 <span class="text-sm font-normal text-gray-500">元</span></span>
+                    <article class="service-card bg-[#FFDADA] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/08d7ebd1-0431-4d30-9079-bf89923b5c86.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#6B2C3A]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#6B2C3A]">80 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">伴侶 / 婚姻諮商</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2400-3800元 / 80分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            當關係裡出現溝通困難、冷漠、衝突或不安全感，心理師會協助你們理解彼此的需要，練習更清楚地表達，慢慢修復信任與親密。
+                        </p>
                     </article>
                     
-                    <article class="bg-[#FFF8ED] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-orange-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#6B4B2C] text-center">親子 / 家庭諮商</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#6B4B2C]">2400-3800 <span class="text-sm font-normal text-gray-500">元</span></span>
+                    <article class="service-card bg-[#FFE6CD] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/464d0c45-9560-487d-906b-5418f42e2c10.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#6B4B2C]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#6B4B2C]">80 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">親子 / 家庭諮商</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2400-3800元 / 80分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            透過家庭諮商看懂問題背後的互動模式，整理關係中的委屈、期待與無奈，讓家人有機會重新聽見彼此，也讓愛再次流動。
+                        </p>
                     </article>
                     
-                    <article class="bg-[#F0FAF4] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-emerald-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#2C6B46] text-center">青少年 / 兒童諮商</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#2C6B46]">2000-3000 <span class="text-sm font-normal text-gray-500">元</span></span>
+                    <article class="service-card bg-[#FFF2C2] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/37815f88-5e95-4826-a00a-998b76abfdce.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#2C6B46]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#2C6B46]">50 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">青少年 / 兒童諮商</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2000-3000元 / 50分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            以孩子能理解的媒材、遊戲與對話進入內在世界，陪伴他們表達情緒、改善適應困難，也協助照顧者找到更合適的支持方式。
+                        </p>
                     </article>
                    
-                    <article class="bg-[#F6F3FC] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-purple-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#4B2C6B] text-center">頌缽治療</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#4B2C6B]">2000-3000 <span class="text-sm font-normal text-gray-500">元</span></span>
+                    <article class="service-card bg-[#E2F4D1] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/1dba2eda-3303-42b3-ad65-257d523f28b7.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#4B2C6B]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#4B2C6B]">50 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">頌缽治療</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2000-3000元 / 50分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            在聲波共鳴與專注當下的練習中，讓緊繃的身心慢慢沉澱。頌缽深厚穩定的頻率，陪你回到更安定、更能休息的狀態。
+                        </p>
                     </article>
                     
-                    <article class="bg-[#F0FAFB] p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border border-cyan-50">
-                        <h3 class="text-2xl font-medium mb-8 text-[#2C5F6B] text-center">催眠治療</h3>
-                        <div class="mt-auto flex items-center justify-between text-gray-700 bg-white/70 backdrop-blur-sm p-5 rounded-2xl">
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 mb-1">費用</span>
-                                <span class="font-medium text-lg text-[#2C5F6B]">2500-3500 <span class="text-sm font-normal text-gray-500">元</span></span>
+                    <article class="service-card bg-[#D6F1FF] overflow-hidden flex flex-col h-full">
+                        <div class="flex items-center justify-center px-6 py-7">
+                            <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
+                                <img src="https://i-talk.tw/Files/8/OrgFiles/45e65698-d3b3-45cb-9967-43566dbc4b47.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
                             </div>
-                            <div class="w-px h-10 bg-[#2C5F6B]/20"></div>
-                            <div class="flex flex-col text-right">
-                                <span class="text-xs text-gray-500 mb-1">時間</span>
-                                <span class="font-medium text-lg text-[#2C5F6B]">50 <span class="text-sm font-normal text-gray-500">分鐘</span></span>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 leading-snug">催眠治療</h3>
+                                <p class="text-sm text-gray-600 font-semibold mt-1">2500-3500元 / 50分鐘</p>
                             </div>
                         </div>
+                        <p class="service-card-desc mx-5 mb-5 p-4 text-[0.95rem] leading-[1.75] text-gray-700 grow">
+                            催眠並非操控，而是在安全、信任的關係中，溫柔地與潛意識連結。陪你在清明的狀態裡，看見內在資源與新的可能。
+                        </p>
                     </article>
                 </div>
             </div>
@@ -260,38 +278,38 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">                    
                     
-                    <article class="bg-[#F4F7FB] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C4A6B]/5 transition-transform duration-500 group-hover:scale-110">01</div>
-                        <div class="w-12 h-12 bg-white text-[#2C4A6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">1</div>
-                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C4A6B] relative z-10">填寫預約表單</h3>
+                    <article class="bg-[#E6D9FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#4B2C6B]/5 transition-transform duration-500 group-hover:scale-110">01</div>
+                        <div class="w-12 h-12 bg-white text-[#4B2C6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">1</div>
+                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#4B2C6B] relative z-10">填寫預約表單</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">留下您的基本需求與聯絡方式。</p>
                     </article>
                     
-                    <article class="bg-[#F0FAF7] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C6B59]/5 transition-transform duration-500 group-hover:scale-110">02</div>
-                        <div class="w-12 h-12 bg-white text-[#2C6B59] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">2</div>
-                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C6B59] relative z-10">加入官方 LINE</h3>
+                    <article class="bg-[#FFDADA] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#6B2C3A]/5 transition-transform duration-500 group-hover:scale-110">02</div>
+                        <div class="w-12 h-12 bg-white text-[#6B2C3A] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">2</div>
+                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#6B2C3A] relative z-10">加入官方 LINE</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">方便即時接收預約資訊與提醒。</p>
                     </article>
                     
-                    <article class="bg-[#FFF9F0] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#FFF2C2] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#6B522C]/5 transition-transform duration-500 group-hover:scale-110">03</div>
                         <div class="w-12 h-12 bg-white text-[#6B522C] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">3</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#6B522C] relative z-10">傳送姓名電話</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">在 LINE 對話框輸入姓名以便核對。</p>
                     </article>
                     
-                    <article class="bg-[#FFF4F4] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#6B2C3A]/5 transition-transform duration-500 group-hover:scale-110">04</div>
-                        <div class="w-12 h-12 bg-white text-[#6B2C3A] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">4</div>
-                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#6B2C3A] relative z-10">專人聯繫媒合</h3>
+                    <article class="bg-[#E2F4D1] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C6B46]/5 transition-transform duration-500 group-hover:scale-110">04</div>
+                        <div class="w-12 h-12 bg-white text-[#2C6B46] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">4</div>
+                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C6B46] relative z-10">專人聯繫媒合</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">行政團隊為您安排合適的心理師。</p>
                     </article>
                     
-                    <article class="bg-[#F8F4FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#4B2C6B]/5 transition-transform duration-500 group-hover:scale-110">05</div>
-                        <div class="w-12 h-12 bg-white text-[#4B2C6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">5</div>
-                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#4B2C6B] relative z-10">正式進行諮商</h3>
+                    <article class="bg-[#D6F1FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C5F6B]/5 transition-transform duration-500 group-hover:scale-110">05</div>
+                        <div class="w-12 h-12 bg-white text-[#2C5F6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">5</div>
+                        <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C5F6B] relative z-10">正式進行諮商</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">展開您的專業諮商旅程。</p>
                     </article>
 
