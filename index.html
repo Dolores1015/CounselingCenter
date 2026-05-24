@@ -76,10 +76,32 @@
             border-radius: 10px;
             text-align: justify;
         }
+
+        /* --- 基礎淡入動畫 CSS 定義 --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-down {
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        /* 動態激活時的通用 Class */
+        .animate-active {
+            opacity: 1 !important;
+            transform: translate(0) !important;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
-    <!-- 頂部導覽列 -->
     <nav class="fixed w-full z-50 nav-blur border-b border-gray-200" aria-label="主要導覽">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="flex justify-between items-center h-20">
@@ -89,7 +111,6 @@
                     </a>
                 </div>
 
-                <!-- 桌面版選單 -->
                 <div class="hidden md:flex items-center space-x-8 text-base tracking-wide font-medium text-morandi-text">
                     <a href="about.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">關於我們</a>
                     <a href="team.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理師團隊</a>
@@ -111,7 +132,7 @@
                         </button>
                         <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden dropdown-menu">
                             <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">最新消息</a>
-                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">精選文章</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">精選文章</a>
                         </div>
                     </div>
                     
@@ -125,7 +146,6 @@
                 </div>
             </div>
 
-            <!-- 手機版選單 -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 pb-6 pt-2">
                 <div class="space-y-1">
                     <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">關於我們</a>
@@ -146,7 +166,6 @@
     </nav>
 
     <main id="main-content">
-        <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center hero-gradient pt-24 pb-16">
             <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                 <div class="max-w-2xl">
@@ -166,10 +185,9 @@
             </div>
         </section>
 
-        <!-- 服務項目區塊 -->
-        <section id="services" class="py-24 bg-[#F2F6F6]">
+        <section id="services" class="py-24 bg-[#F2F6F6] overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
-                <div class="text-center mb-14">
+                <div class="text-center mb-14 fade-in-down">
                     <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown leading-snug mb-5">諮商服務項目</h2>
                     <p class="text-gray-600 leading-[1.9] max-w-2xl mx-auto">
                         諮商不是急著給答案，而是在穩定的關係裡，看見情緒、關係與選擇背後真正的需要。
@@ -177,7 +195,7 @@
                 </div>
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <article class="service-card bg-[#E6D9FF] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#E6D9FF] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/cf5bb4d8-addb-4b06-92aa-d7c7eb435455.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -192,7 +210,7 @@
                         </p>
                     </article>
                     
-                    <article class="service-card bg-[#FFDADA] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#FFDADA] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/08d7ebd1-0431-4d30-9079-bf89923b5c86.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -207,7 +225,7 @@
                         </p>
                     </article>
                     
-                    <article class="service-card bg-[#FFE6CD] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#FFE6CD] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/464d0c45-9560-487d-906b-5418f42e2c10.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -222,7 +240,7 @@
                         </p>
                     </article>
                     
-                    <article class="service-card bg-[#FFF2C2] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#FFF2C2] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/37815f88-5e95-4826-a00a-998b76abfdce.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -237,7 +255,7 @@
                         </p>
                     </article>
                    
-                    <article class="service-card bg-[#E2F4D1] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#E2F4D1] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/1dba2eda-3303-42b3-ad65-257d523f28b7.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -252,7 +270,7 @@
                         </p>
                     </article>
                     
-                    <article class="service-card bg-[#D6F1FF] overflow-hidden flex flex-col h-full">
+                    <article class="service-card bg-[#D6F1FF] overflow-hidden flex flex-col h-full fade-in-up">
                         <div class="flex items-center justify-center px-6 py-7">
                             <div class="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center mr-4 shrink-0 shadow-sm">
                                 <img src="https://i-talk.tw/Files/8/OrgFiles/45e65698-d3b3-45cb-9967-43566dbc4b47.png" alt="" class="max-w-[60%] max-h-[60%] object-contain">
@@ -270,76 +288,111 @@
             </div>
         </section>
         
-        <section class="py-24 bg-white">
+        <section class="py-24 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 fade-in-down">
                     <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown">諮商預約流程</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">                    
-                    
-                    <article class="bg-[#E6D9FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#E6D9FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-up">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#4B2C6B]/5 transition-transform duration-500 group-hover:scale-110">01</div>
                         <div class="w-12 h-12 bg-white text-[#4B2C6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">1</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#4B2C6B] relative z-10">填寫預約表單</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">留下您的基本需求與聯絡方式。</p>
                     </article>
                     
-                    <article class="bg-[#FFDADA] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#FFDADA] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-up">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#6B2C3A]/5 transition-transform duration-500 group-hover:scale-110">02</div>
                         <div class="w-12 h-12 bg-white text-[#6B2C3A] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">2</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#6B2C3A] relative z-10">加入官方 LINE</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">方便即時接收預約資訊與提醒。</p>
                     </article>
                     
-                    <article class="bg-[#FFF2C2] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#FFF2C2] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-up">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#6B522C]/5 transition-transform duration-500 group-hover:scale-110">03</div>
                         <div class="w-12 h-12 bg-white text-[#6B522C] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">3</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#6B522C] relative z-10">傳送姓名電話</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">在 LINE 對話框輸入姓名以便核對。</p>
                     </article>
                     
-                    <article class="bg-[#E2F4D1] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#E2F4D1] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-up">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C6B46]/5 transition-transform duration-500 group-hover:scale-110">04</div>
                         <div class="w-12 h-12 bg-white text-[#2C6B46] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">4</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C6B46] relative z-10">專人聯繫媒合</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">行政團隊為您安排合適的心理師。</p>
                     </article>
                     
-                    <article class="bg-[#D6F1FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <article class="bg-[#D6F1FF] rounded-3xl p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300 hover:-translate-y-1 fade-in-up">
                         <div class="absolute -right-2 -top-2 text-7xl font-black text-[#2C5F6B]/5 transition-transform duration-500 group-hover:scale-110">05</div>
                         <div class="w-12 h-12 bg-white text-[#2C5F6B] rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-sm relative z-10">5</div>
                         <h3 class="text-xl font-medium mt-4 mb-3 text-[#2C5F6B] relative z-10">正式進行諮商</h3>
                         <p class="text-sm text-gray-600 leading-relaxed relative z-10">展開您的專業諮商旅程。</p>
                     </article>
-
                 </div>
             </div>
         </section>
         
-        <!-- 空間介紹區塊 -->
-        <section class="py-24 bg-morandi-mist">
+        <section class="py-24 bg-morandi-mist overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
+                    <div class="fade-in-up">
                         <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=1200" alt="自然光灑落的溫暖諮商空間" loading="lazy" class="w-full aspect-[4/3] object-cover rounded-xl shadow-soft">
                     </div>
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-light text-morandi-brandBrown leading-snug mb-6">讓身體先安定，心才有空間慢慢說話。</h2>
-                        <p class="text-gray-600 leading-relaxed mb-8">
+                    <div class="fade-in-right">
+                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">讓身體先安定，心才有空間慢慢說話。</h2>
+                        <p class="text-gray-600 leading-relaxed">
                             耘心的空間以自然光、低彩度色系與舒適座位為核心，減少陌生感與壓迫感。每間諮商室皆維持獨立、安靜與隱私，讓您能在被接住的氛圍裡開始。
                         </p>
-                        <a href="about.html" class="inline-block border-2 border-morandi-green text-morandi-green px-7 py-3 rounded-lg font-medium hover:bg-morandi-green hover:text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">認識我們的空間</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center bg-morandi-mist/50 rounded-3xl p-12 md:p-16">
-                <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown mb-4">現在開始，會是改變的第一步</h2>
-                <p class="text-gray-600 text-lg mb-8">你不需要等到撐不住才來</p>
-                <a href="https://dolores1015.github.io/CounselingCenter/booking.html" target="_blank" rel="noopener noreferrer" class="inline-block bg-morandi-green text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約諮商</a>
+        <section class="py-24 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-16 fade-in-down">
+                    <h2 class="text-3xl md:text-4xl font-medium text-morandi-brandBrown leading-snug mb-4">空間環境</h2>
+                    <p class="text-gray-500 max-w-xl mx-auto font-light">溫馨、隱密而溫暖的專專屬空間，陪伴您安放每一顆需要被傾聽的心。</p>
+                </div>
+                
+                <div id="space-environment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="group bg-morandi-beige rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 opacity-0 translate-y-10">
+                        <div class="overflow-hidden aspect-[4/3] bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1610395185438-8fdc012c748c?q=80&w=800&auto=format&fit=crop" alt="「蒔光」諮商室" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center border-t border-gray-50">
+                            <h3 class="text-lg font-bold text-morandi-brandBrown tracking-wide">「蒔光」諮商室</h3>
+                        </div>
+                    </div>
+
+                    <div class="group bg-morandi-beige rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 opacity-0 translate-y-10">
+                        <div class="overflow-hidden aspect-[4/3] bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1666585958641-4f70887372a1?q=80&w=800&auto=format&fit=crop" alt="「聽潮」諮商室" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center border-t border-gray-50">
+                            <h3 class="text-lg font-bold text-morandi-brandBrown tracking-wide">「聽潮」諮商室</h3>
+                        </div>
+                    </div>
+
+                    <div class="group bg-morandi-beige rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 opacity-0 translate-y-10">
+                        <div class="overflow-hidden aspect-[4/3] bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1633505899118-4ca6bd143043?q=80&w=800&auto=format&fit=crop" alt="「棲林」諮商室" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center border-t border-gray-50">
+                            <h3 class="text-lg font-bold text-morandi-brandBrown tracking-wide">「棲林」諮商室</h3>
+                        </div>
+                    </div>
+
+                    <div class="group bg-morandi-beige rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 opacity-0 translate-y-10">
+                        <div class="overflow-hidden aspect-[4/3] bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=800&auto=format&fit=crop" alt="「映曦」諮商室" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center border-t border-gray-50">
+                            <h3 class="text-lg font-bold text-morandi-brandBrown tracking-wide">「映曦」諮商室</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -386,7 +439,7 @@
     </footer>
 
     <script>
-        // 手機版選單切換
+        // 手機版導覽選單開關
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         menuButton.addEventListener('click', () => {
@@ -395,7 +448,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // 觸控裝置/點擊友善的下拉選單
+        // 觸控裝置下拉選單邏輯
         const dropdownButtons = document.querySelectorAll('.dropdown > button');
         dropdownButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -403,7 +456,6 @@
                 const menu = button.nextElementSibling;
                 const isExpanded = button.getAttribute('aria-expanded') === 'true';
                 
-                // 關閉其他已開啟的下拉選單
                 document.querySelectorAll('.dropdown-menu.show').forEach(m => {
                     if (m !== menu) {
                         m.classList.remove('show');
@@ -411,19 +463,67 @@
                     }
                 });
 
-                // 切換當前選單狀態
                 menu.classList.toggle('show');
                 button.setAttribute('aria-expanded', String(!isExpanded));
             });
         });
 
-        // 點擊頁面空白處關閉下拉選單
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.dropdown')) {
                 document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
                     menu.classList.remove('show');
                     menu.previousElementSibling.setAttribute('aria-expanded', 'false');
                 });
+            }
+        });
+
+        /* --- 滾動網頁觸發動畫與依序淡入 JS 核心處理邏輯 --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // 畫面滾動露出 15% 時正式啟動
+            };
+
+            // 1. 一般淡入處理器（適用於上滑、下滑、右滑等獨立元件）
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-down, .fade-in-right');
+            animatedElements.forEach(el => observer.observe(el));
+
+            // 2. 空間環境區塊：專屬 4 張卡片「依序排隊骨牌式淡入」處理器
+            const environmentGrid = document.getElementById('space-environment-grid');
+            if (environmentGrid) {
+                const delayObserver = new IntersectionObserver((entries, delayObserver) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const cards = entry.target.children;
+                            
+                            Array.from(cards).forEach((card, index) => {
+                                // 設定流暢的動畫過渡時間
+                                card.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                                
+                                // 每張卡片遞增延遲 150 毫秒 (0.15秒)
+                                setTimeout(() => {
+                                    card.classList.remove('opacity-0', 'translate-y-10');
+                                    card.classList.add('opacity-100', 'translate-y-0');
+                                }, index * 150);
+                            });
+                            
+                            // 淡入過後即解除監聽，不重複消耗瀏覽器資源
+                            delayObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { root: null, threshold: 0.1 });
+
+                delayObserver.observe(environmentGrid);
             }
         });
     </script>
