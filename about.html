@@ -9,10 +9,10 @@
     <meta property="og:description" content="在陪伴中療癒，在關懷裡茁壯。認識耘心心理諮商所。">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/og-image.jpg">
-    <meta name="theme-color" content="#44B1B1">
+    <meta name="theme-color" content="#eca3a3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- 引入 Noto Sans TC 與 LXGW WenKai TC (霞鶩文楷 Regular 400) -->
+    <!-- 引入 Noto Sans TC 與 LXGW WenKai TC -->
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- 引入 AOS 動態效果庫 CSS -->
@@ -33,14 +33,17 @@
                             brandBrown: '#1F4F52',
                             mist: '#EAF6F5',
                             clay: '#D9C8BD'
-                        }
+                        },
+                        customButton: '#eca3a3',
+                        customButtonHover: '#d99292',
+                        brandTitle: '#5e4545' // 原本的標題顏色
                     },
                     fontFamily: {
                         sans: ['Noto Sans TC', 'sans-serif'],
-                        serif: ['LXGW WenKai TC', 'serif'] /* 將襯線字體改為霞鶩文楷 */
+                        serif: ['LXGW WenKai TC', 'serif']
                     },
                     boxShadow: {
-                        soft: '0 18px 45px rgba(31, 79, 82, 0.10)'
+                        soft: '0 18px 45px rgba(0, 0, 0, 0.05)'
                     }
                 }
             }
@@ -48,10 +51,10 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { background-color: #F6FAFA; color: #394242; overflow-x: hidden; }
+        body { background-color: #F6FAFA; overflow-x: hidden; }
         .nav-blur { backdrop-filter: blur(12px); background-color: rgba(246, 250, 250, 0.90); }
         .transition-soft { transition: all 0.28s ease; }
-        .focus-ring:focus-visible { outline: 3px solid rgba(68, 177, 177, 0.42); outline-offset: 3px; }
+        .focus-ring:focus-visible { outline: 3px solid rgba(236, 163, 163, 0.42); outline-offset: 3px; }
         .page-hero {
             background:
                 linear-gradient(90deg, rgba(246, 250, 250, 0.96) 0%, rgba(234, 246, 245, 0.86) 48%, rgba(246, 250, 250, 0.44) 100%),
@@ -69,7 +72,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased text-gray-700"> <!-- 內文統一深灰色 -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:shadow-soft">
         跳至主要內容
     </a>
@@ -83,55 +86,38 @@
                     </a>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8 text-base tracking-wide font-medium text-morandi-text">
-                    <a href="about.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">關於我們</a>
-                    <a href="team.html" class="hover:text-morandi-green transition-all duration-300 ease-in-out">心理師團隊</a>
+                <div class="hidden md:flex items-center space-x-8 text-base tracking-wide font-medium text-gray-700">
+                    <a href="about.html" class="hover:text-customButton transition-all duration-300 ease-in-out">關於我們</a>
+                    <a href="team.html" class="hover:text-customButton transition-all duration-300 ease-in-out">心理師團隊</a>
                     
                     <div class="relative group py-2">
-                        <button class="flex items-center hover:text-morandi-green transition-all duration-300 ease-in-out" aria-haspopup="true" aria-expanded="false">
+                        <button class="flex items-center hover:text-customButton transition-all duration-300 ease-in-out" aria-haspopup="true" aria-expanded="false">
                             諮商服務 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-300 z-50">
-                            <a href="#services" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">服務項目</a>
-                            <a href="match.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">媒合心理師</a>
-                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">企業服務 (EAP)</a>
+                            <a href="#services" class="block px-6 py-4 hover:bg-morandi-mist hover:text-customButton transition-all duration-300 ease-in-out">服務項目</a>
+                            <a href="match.html" class="block px-6 py-4 hover:bg-morandi-mist hover:text-customButton transition-all duration-300 ease-in-out border-t border-gray-50">媒合心理師</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-customButton transition-all duration-300 ease-in-out border-t border-gray-50">企業服務 (EAP)</a>
                         </div>
                     </div>
                     
                     <div class="relative group py-2">
-                        <button class="flex items-center hover:text-morandi-green transition-all duration-300 ease-in-out" aria-haspopup="true" aria-expanded="false">
+                        <button class="flex items-center hover:text-customButton transition-all duration-300 ease-in-out" aria-haspopup="true" aria-expanded="false">
                             心靈專欄 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 shadow-soft rounded-xl overflow-hidden opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-300 z-50">
-                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out">最新消息</a>
-                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-morandi-green transition-all duration-300 ease-in-out border-t border-gray-50">精選文章</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-customButton transition-all duration-300 ease-in-out">最新消息</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-morandi-mist hover:text-customButton transition-all duration-300 ease-in-out border-t border-gray-50">精選文章</a>
                         </div>
                     </div>
                     
-                    <a href="booking.html" class="bg-morandi-green text-white px-7 py-2.5 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
+                    <a href="booking.html" class="bg-customButton text-white px-7 py-2.5 rounded-lg hover:bg-customButtonHover transition-all duration-300 ease-in-out shadow-sm focus:outline-none focus:ring-2 focus:ring-customButton focus:ring-offset-2">立即預約</a>
                 </div>
 
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-morandi-text p-2 focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2 rounded-md" aria-expanded="false" aria-label="開啟選單">
+                    <button id="mobile-menu-button" class="text-gray-700 p-2 focus:outline-none focus:ring-2 focus:ring-customButton focus:ring-offset-2 rounded-md" aria-expanded="false" aria-label="開啟選單">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
-                </div>
-            </div>
-
-            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 pb-6 pt-2">
-                <div class="space-y-1">
-                    <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">關於我們</a>
-                    <a href="team.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">心理師團隊</a>
-                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">諮商服務</p>
-                    <a href="#services" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">服務項目</a>
-                    <a href="match.html" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">媒合心理師</a>
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">企業服務</a>
-                    <p class="px-4 py-2 mt-4 text-xs font-bold text-gray-500 tracking-widest uppercase">文章資訊</p>
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">最新消息</a>
-                    <a href="#" class="block px-4 py-3 rounded-lg hover:bg-morandi-mist transition-all duration-300 ease-in-out">精選文章</a>
-                    <div class="pt-4 px-4">
-                        <a href="booking.html" class="block w-full text-center bg-morandi-green text-white py-3 rounded-lg hover:bg-morandi-darkGreen transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-morandi-green focus:ring-offset-2">立即預約</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -141,10 +127,10 @@
         <section class="page-hero pt-36 pb-24 md:pt-44 md:pb-32">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="max-w-2xl">
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight md:leading-[1.25] text-morandi-brandBrown mb-8">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight md:leading-[1.25] text-brandTitle mb-8">
                         關於耘心
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-light">
                         我們相信，每個人都值得在安全、被理解的關係裡，重新靠近自己。耘心陪您把心裡凌亂的感受慢慢整理成能被看見、能被照顧的方向。
                     </p>
                 </div>
@@ -159,11 +145,10 @@
                         <img src="images/Gemini_p5sb.webp" alt="明亮安靜的室內諮商空間" class="w-full aspect-[4/3] object-cover rounded-xl shadow-soft">
                     </div>
                     <div data-aos="fade-left" data-aos-duration="1000">
-                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">成立宗旨</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">成立宗旨</h2>
                         <div class="space-y-5 text-gray-600 leading-relaxed">                            
                             <p>我們相信，每個受困的靈魂，都有破繭的奇蹟；每段受傷的經歴，都有療癒的可能。然而我們也懂，破繭前的掙礼、療傷中的煎煞，常常十分難熬而令人備感挫折，或甚至萌生放棄的念頭。</p>
-                            <p>正因為生命難題無所不在，耘心心理諮商所結合專精各種領域的諮商心理師、臨床心理師與社工師，以「當事人為中心」的服務理念，重視個人隱私的設計，針對大眾的心理疑雖雜症提供多元議題的諮商服務。
-</p>
+                            <p>正因為生命難題無所不在，耘心心理諮商所結合專精各種領域的諮商心理師、臨床心理師與社工師，以「當事人為中心」的服務理念，重視個人隱私的設計，針對大眾的心理疑雖雜症提供多元議題的諮商服務。</p>
                         </div>
                     </div>
                 </div>
@@ -175,13 +160,12 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
                     <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">創辦人的話</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">創辦人的話</h2>
                         <div class="space-y-5 text-gray-600 leading-relaxed font-light">
-                            <p class="text-lg font-medium text-morandi-brandBrown">「黑夜總會過去，讓我們陪你找回內在的光芒。」</p>
+                            <p class="text-lg font-medium text-gray-800">「黑夜總會過去，讓我們陪你找回內在的光芒。」</p>
                             <p>走入心理諮商，往往需要很大的勇氣。許多人在來到諮商室前，已經獨自撐過了無數個迷茫、焦慮與不安的夜晚。在耘心，我們不急著給予批判或貼上標籤，而是由衷希望能成為一座燈塔，在晦暗中溫柔接住每一份疲憊。</p>
                             <p>『耘心』二字取自耕耘心靈之意。心靈就如同一方土壤，需要時間灌溉、除草與陪伴，方能再次萌發新芽。不論您正身處人生的哪一個十字路口，我都期盼這裡能成為您最安心的停泊點，讓我們一同並肩，找回內在的光芒與力量。</p>
-                            <!-- 字體更新為 LXGW WenKai TC，並設定為 font-normal (400) -->
-                            <p class="pt-4 text-right font-normal font-serif text-xl text-morandi-brandBrown tracking-wide">
+                            <p class="pt-4 text-right font-normal font-serif text-xl text-brandTitle tracking-wide">
                                 創辦人 李予澄
                             </p>
                         </div>
@@ -200,72 +184,72 @@
         <section class="py-24 bg-white border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down" data-aos-duration="1000">
-                    <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug">空間環境</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug">空間環境</h2>
                     <p class="text-gray-500 mt-4 font-light">隱密、溫馨且充滿綠意與木質調的空間，只為讓您能全然放鬆卸下心防。</p>
                 </div>
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                         <div class="overflow-hidden aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1610395185438-8fdc012c748c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800" alt="溫馨溫暖的諮商室" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1610395185438-8fdc012c748c?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-4 bg-white text-center">
-                            <p class="font-medium text-morandi-brandBrown text-sm">「蒔光」諮商室</p>
+                            <p class="font-medium text-gray-800 text-sm">「蒔光」諮商室</p>
                         </div>
                     </div>
                     <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
                         <div class="overflow-hidden aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1666585958641-4f70887372a1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800" alt="沙發與柔和燈光" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1666585958641-4f70887372a1?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-4 bg-white text-center">
-                            <p class="font-medium text-morandi-brandBrown text-sm">「聽潮」諮商室</p>
+                            <p class="font-medium text-gray-800 text-sm">「聽潮」諮商室</p>
                         </div>
                     </div>
                     <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                         <div class="overflow-hidden aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1633505899118-4ca6bd143043?q=80&w=1392&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800" alt="溫慢陽光接待區" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1633505899118-4ca6bd143043?q=80&w=1392&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-4 bg-white text-center">
-                            <p class="font-medium text-morandi-brandBrown text-sm">「棲林」諮商室</p>
+                            <p class="font-medium text-gray-800 text-sm">「棲林」諮商室</p>
                         </div>
                     </div>
                     <div class="group overflow-hidden rounded-xl bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-duration="800" data-aos-delay="550">
                         <div class="overflow-hidden aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800" alt="角落沙發與綠植" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1632&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-4 bg-white text-center">
-                            <p class="font-medium text-morandi-brandBrown text-sm">「映曦」諮商室</p>
+                            <p class="font-medium text-gray-800 text-sm">「映曦」諮商室</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 其他區塊保持不變 -->
+        <!-- 什麼時候可以來談談區塊 -->
         <section class="py-24 bg-morandi-beige border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">什麼時候可以來談談</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">什麼時候可以來談談</h2>
                         <p class="text-gray-600 leading-relaxed">
                             不需要等到撐不下去才尋求協助。當您開始覺得某些感受反覆出現、關係卡住、生活失去方向，諮商就可以是一個整理自己的起點。
                         </p>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div class="rounded-xl border border-morandi-mist bg-white p-6 shadow-sm">
-                            <h3 class="font-medium text-morandi-brandBrown mb-2">情緒與壓力</h3>
+                            <h3 class="font-medium text-brandTitle mb-2">情緒與壓力</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">焦慮、低落、失眠、長期緊繃、身心疲憊。</p>
                         </div>
                         <div class="rounded-xl border border-morandi-mist bg-white p-6 shadow-sm">
-                            <h3 class="font-medium text-morandi-brandBrown mb-2">關係與家庭</h3>
+                            <h3 class="font-medium text-brandTitle mb-2">關係與家庭</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">伴侶溝通、親子互動、人際界線、家庭壓力。</p>
                         </div>
                         <div class="rounded-xl border border-morandi-mist bg-white p-6 shadow-sm">
-                            <h3 class="font-medium text-morandi-brandBrown mb-2">自我探索</h3>
+                            <h3 class="font-medium text-brandTitle mb-2">自我探索</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">自我價值、生命方向、重大選擇與轉換期。</p>
                         </div>
                         <div class="rounded-xl border border-morandi-mist bg-white p-6 shadow-sm">
-                            <h3 class="font-medium text-morandi-brandBrown mb-2">創傷與失落</h3>
+                            <h3 class="font-medium text-brandTitle mb-2">創傷與失落</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">分離、失落、過往傷痛與難以消化的經驗。</p>
                         </div>
                     </div>
@@ -273,23 +257,22 @@
             </div>
         </section>
 
+        <!-- 地理位置區塊 -->
         <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">地理位置</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">地理位置</h2>
                         <div class="space-y-4 text-gray-600">
+                            <!-- 地址已改為與內文同色 -->
                             <p class="flex items-start">
-                                <span class="font-medium text-morandi-green mr-2">地址：</span>
+                                <span class="font-medium text-gray-700 whitespace-nowrap mr-2">地址：</span>
                                 <span>基隆市信義區信一路150號5樓A室</span>
                             </p>
-                            <p class="flex items-start">
-                                <span class="font-medium text-morandi-green mr-2">交通：</span>
+                            <!-- 交通已改為與內文同色 -->
+                            <p class="flex items-baseline">
+                                <span class="font-medium text-gray-700 whitespace-nowrap mr-2">交通：</span>
                                 <span>搭乘公車至「基隆女中」或「義七路口」下車，步行約 3-5 分鐘即可抵達。周邊設有收費停車場。</span>
-                            </p>
-                            <p class="flex items-start">
-                                <span class="font-medium text-morandi-green mr-2">備註：</span>
-                                <span>本所採取「全預約制」，諮商前請先透過官方 Line 或線上表單完成預約。</span>
                             </p>
                         </div>
                     </div>
@@ -297,28 +280,14 @@
                         <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] bg-slate-50"></div>
                         <div class="absolute w-full h-4 bg-gray-200 top-1/2 -translate-y-1/2 rotate-1"></div>
                         <div class="absolute h-full w-4 bg-gray-200 left-1/3 -translate-x-1/2 -rotate-1"></div>
-                        <div class="absolute w-full h-4 bg-gray-200 top-1/4 -translate-y-1/2"></div>
                         <div class="absolute w-full h-8 bg-sky-100 top-2/3 -translate-y-1/2 flex items-center pl-12 text-[10px] text-sky-400 font-medium tracking-widest">田寮河</div>
                         
-                        <div class="absolute top-[21%] left-[45%] text-[11px] text-gray-400 bg-white px-1.5 py-0.5 rounded shadow-sm border border-gray-100">信一路</div>
-                        <div class="absolute top-[68%] left-[10%] text-[11px] text-gray-400 bg-white px-1.5 py-0.5 rounded shadow-sm border border-gray-100">仁一路</div>
-                        <div class="absolute top-[40%] left-[24%] text-[11px] text-gray-400 bg-white px-1.5 py-0.5 rounded shadow-sm border border-gray-100 -rotate-90">義七路</div>
-
                         <div class="relative z-10 flex flex-col items-center -translate-y-6 animate-bounce">
-                            <div class="bg-white text-morandi-brandBrown px-4 py-2 rounded-xl shadow-md border border-morandi-mist text-sm font-medium whitespace-nowrap mb-1">
+                            <div class="bg-white text-brandTitle px-4 py-2 rounded-xl shadow-md border border-gray-100 text-sm font-medium whitespace-nowrap mb-1">
                                 📍 耘心心理諮商所
-                                <span class="block text-[11px] font-normal text-gray-400 text-center mt-0.5">5 樓 A 室</span>
+                                <span class="block text-[11px] font-normal text-gray-400 text-center mt-0.5">5 樓 A室</span>
                             </div>
-                            <div class="w-3 h-3 bg-morandi-green rotate-45 -mt-2.5 shadow-sm"></div>
-                            <div class="w-6 h-1.5 bg-gray-300/60 rounded-full blur-[1px] mt-2"></div>
-                        </div>
-
-                        <div class="absolute bottom-4 right-4 bg-white rounded shadow-sm border border-gray-200 p-1 flex flex-col text-xs text-gray-500 font-bold">
-                            <span class="px-2 py-1 border-b border-gray-100 hover:bg-gray-50 cursor-pointer text-center text-sm">+</span>
-                            <span class="px-2 py-1 hover:bg-gray-50 cursor-pointer text-center text-sm">−</span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm rounded px-2 py-0.5 text-[10px] text-gray-400">
-                            🗺️ 模擬地圖資料 ©2026 Google
+                            <div class="w-3 h-3 bg-customButton rotate-45 -mt-2.5 shadow-sm"></div>
                         </div>
                     </div>
                 </div>
@@ -327,18 +296,19 @@
 
         <section class="py-24 bg-morandi-beige border-t border-gray-100">
             <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-morandi-brandBrown leading-snug mb-6">讓一段對話，成為照顧自己的開始</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">讓一段對話，成為照顧自己的開始</h2>
                 <p class="text-gray-600 leading-relaxed mb-9">
                     如果您正在尋找一個能安心說話的地方，耘心願意陪您慢慢梳理眼前的困難，也陪您看見自己一路走來的努力。
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="booking.html" class="inline-block bg-morandi-green text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-darkGreen transition-soft shadow-md focus-ring">立即預約</a>
-                    <a href="contact.html" class="inline-block border-2 border-morandi-green text-morandi-green px-8 py-4 rounded-lg text-lg font-medium hover:bg-morandi-green hover:text-white transition-soft focus-ring">聯絡我們</a>
+                    <a href="booking.html" class="inline-block bg-customButton text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-customButtonHover transition-soft shadow-md focus-ring">立即預約</a>
+                    <a href="contact.html" class="inline-block border-2 border-customButton text-customButton px-8 py-4 rounded-lg text-lg font-medium hover:bg-customButton hover:text-white transition-soft focus-ring">聯絡我們</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- 頁尾部分保持完全不變 -->
     <footer class="bg-morandi-mist border-t border-morandi-green/20 pt-20 pb-10 text-morandi-text">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
@@ -384,21 +354,14 @@
         </div>
     </footer>
 
-    <!-- 引入 AOS 動態效果庫 JavaScript -->
+    <!-- 引入 AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true 
-        });
-
+        AOS.init({ once: true });
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        menuButton.addEventListener('click', () => {
-            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', String(!isOpen));
-            menuButton.setAttribute('aria-label', isOpen ? '開啟選單' : '關閉選單');
-            mobileMenu.classList.toggle('hidden');
+        menuButton?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('hidden');
         });
     </script>
 </body>
