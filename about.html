@@ -12,10 +12,8 @@
     <meta name="theme-color" content="#eca3a3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- 引入 Noto Sans TC 與 LXGW WenKai TC -->
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- 引入 AOS 動態效果庫 CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,7 +34,7 @@
                         },
                         customButton: '#eca3a3',
                         customButtonHover: '#d99292',
-                        brandTitle: '#459DBB' // 已修改：原為 #5e4545，現改為頁尾快速連結的顏色 #459DBB
+                        brandTitle: '#4393AF' // 已修改：由 #459DBB 改為 #4393AF
                     },
                     fontFamily: {
                         sans: ['Noto Sans TC', 'sans-serif'],
@@ -72,8 +70,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-700"> <!-- 內文統一深灰色 -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:shadow-soft">
+<body class="font-sans antialiased text-gray-700"> <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:shadow-soft">
         跳至主要內容
     </a>
 
@@ -128,7 +125,7 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="max-w-2xl">
                     <h1 class="text-4xl md:text-6xl font-bold leading-tight md:leading-[1.25] text-brandTitle mb-8">
-                        關於中崙
+                        關於耘心
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-light">
                         我們相信，每個人都值得在安全、被理解的關係裡，重新靠近自己。耘心陪您把心裡凌亂的感受慢慢整理成能被看見、能被照顧的方向。
@@ -137,7 +134,6 @@
             </div>
         </section>
 
-        <!-- 成立宗旨區塊 -->
         <section class="py-24 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-14 items-center">
@@ -155,7 +151,6 @@
             </div>
         </section>
 
-        <!-- 所長的話區塊 -->
         <section class="py-24 bg-morandi-beige border-t border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
@@ -180,7 +175,6 @@
             </div>
         </section>
 
-        <!-- 空間環境區塊 -->
         <section class="py-24 bg-white border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-down" data-aos-duration="1000">
@@ -225,18 +219,15 @@
             </div>
         </section>
 
-        <!-- 什麼時候可以來談談區塊 -->
         <section class="py-24 bg-morandi-beige border-b border-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
-                    <!-- 文字從左側淡入 -->
                     <div data-aos="fade-right" data-aos-duration="1000">
                         <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">什麼時候可以來談談</h2>
                         <p class="text-gray-600 leading-relaxed">
                             不需要等到撐不下去才尋求協助。當您開始覺得某些感受反覆出現、關係卡住、生活失去方向，諮商就可以是一個整理自己的起點。
                         </p>
                     </div>
-                    <!-- 卡片從右側淡入 -->
                     <div class="grid sm:grid-cols-2 gap-5" data-aos="fade-left" data-aos-duration="1000">
                         <div class="rounded-xl border border-morandi-mist bg-white p-6 shadow-sm">
                             <h3 class="font-medium text-brandTitle mb-2">情緒與壓力</h3>
@@ -259,11 +250,9 @@
             </div>
         </section>
 
-        <!-- 地理位置區塊（已更新為左右對開淡入） -->
         <section class="py-24 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
-                    <!-- 文字從左方淡入 -->
                     <div data-aos="fade-right" data-aos-duration="1000">
                         <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">地理位置</h2>
                         <div class="space-y-4 text-gray-600">
@@ -277,7 +266,6 @@
                             </p>
                         </div>
                     </div>
-                    <!-- 地圖從右方淡入 -->
                     <div class="w-full h-96 rounded-2xl overflow-hidden border border-gray-200 shadow-soft" data-aos="fade-left" data-aos-duration="1000">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.8906059296685!2d121.7501064!3d25.1326456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4e1358ef9c71%3A0xea8f7c9e0467c699!2zMjAw5Z-66ZqG5biC5L_oeWhD6LevMTUw6JmfNQ!5e0!3m2!1szh-TW!2stw!4v1717430000000!5m2!1szh-TW!2stw" 
@@ -294,7 +282,6 @@
             </div>
         </section>
 
-        <!-- 預約呼籲區塊（原地淡入） -->
         <section class="py-24 bg-morandi-beige border-t border-gray-100 overflow-hidden">
             <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center" data-aos="fade" data-aos-duration="1200">
                 <h2 class="text-3xl md:text-4xl font-bold text-brandTitle leading-snug mb-6">讓一段對話，成為照顧自己的開始</h2>
@@ -309,18 +296,17 @@
         </section>
     </main>
 
-    <!-- 頁尾部分保持完全不變 -->
     <footer class="bg-morandi-mist border-t border-morandi-green/20 pt-20 pb-10 text-morandi-text">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="md:col-span-1">
                     <img src="images/Zhonglun_logo.png" alt="耘心心理諮商所 Logo" class="h-10 mb-6 object-contain mx-auto md:mx-0">
-                    <p class="text-sm text-[#459DBB] leading-loose">
+                    <p class="text-sm text-[#4393AF] leading-loose">
                         在陪伴中療癒，在關懷裡茁壯
                     </p>
                 </div>
                 <div>
-                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">快速連結</h2>
+                    <h2 class="font-medium mb-6 text-base text-[#4393AF]">快速連結</h2>
                     <ul class="text-sm text-gray-600 space-y-4">
                         <li><a href="#" class="hover:text-morandi-green transition-soft focus-ring rounded-md">加入官方 Line</a></li>
                         <li><a href="booking.html" class="hover:text-morandi-green transition-soft focus-ring rounded-md">預約諮商</a></li>
@@ -329,7 +315,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">聯絡方式</h2>
+                    <h2 class="font-medium mb-6 text-base text-[#4393AF]">聯絡方式</h2>
                     <ul class="text-sm text-gray-600 space-y-4">
                         <li>(02) 2427-1000</li>
                         <li>0968-212-731</li>
@@ -338,7 +324,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="font-medium mb-6 text-base text-[#459DBB]">營業時間（全預約制）</h2>
+                    <h2 class="font-medium mb-6 text-base text-[#4393AF]">營業時間（全預約制）</h2>
                     <ul class="text-sm text-gray-600 space-y-4">
                         <li>週一至週五　10:00~21:00</li>
                         <li>週六　　　　10:00~18:00</li>
@@ -355,7 +341,6 @@
         </div>
     </footer>
 
-    <!-- 引入 AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true });
