@@ -23,8 +23,8 @@
                     colors: {
                         morandi: {
                             beige: '#FAF6F0',      /* 溫潤奶油燕麥 */
-                            green: '#C98B70',      /* 療癒暖陶粉 (原主色 green) */
-                            darkGreen: '#A86D55',  /* 復古深陶磚 (原深色 darkGreen) */
+                            green: '#D8767C',      /* 療癒暖粉色 (更新主色按鈕) */
+                            darkGreen: '#C35E64',  /* 暖粉色 Hover 深色調 */
                             wood: '#BD9780',       /* 溫柔雪松木 */
                             text: '#4A403C',       /* 暖炭深褐 (閱讀不刺眼) */
                             brandBrown: '#5C443C', /* 深焙胡桃棕 */
@@ -514,7 +514,7 @@
                                 setTimeout(() => {
                                     card.classList.remove('opacity-0', 'translate-y-10');
                                     card.classList.add('opacity-100', 'translate-y-0');
-                                bags}, index * 150);
+                                }, index * 150); // 已修正原處筆誤
                             });
                             
                             // 淡入過後即解除監聽，不重複消耗瀏覽器資源
